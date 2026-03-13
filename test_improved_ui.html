@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Improved Current Meal UI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Improved Current Meal UI</h2>
+        <p>This page showcases the enhanced current meal interface with modern design and better user experience.</p>
+        
+        <div class="row">
+            <div class="col-md-8">
+                <h4>Food Cards</h4>
+                <div class="row">
+                    <div class="col-md-3 mb-2">
+                        <button class="btn btn-outline-primary w-100 breakfast-btn" data-food="eggs" data-amount="2" data-unit="large">
+                            <div class="meal-item">
+                                <i class="fas fa-egg"></i>
+                                <span>Eggs</span>
+                                <small>2 large</small>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <button class="btn btn-outline-success w-100 lunch-btn" data-food="chicken_breast" data-amount="150" data-unit="g">
+                            <div class="meal-item">
+                                <i class="fas fa-drumstick-bite"></i>
+                                <span>Chicken Breast</span>
+                                <small>150g</small>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <button class="btn btn-outline-warning w-100 dinner-btn" data-food="salmon" data-amount="120" data-unit="g">
+                            <div class="meal-item">
+                                <i class="fas fa-fish"></i>
+                                <span>Salmon</span>
+                                <small>120g</small>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <button class="btn btn-outline-info w-100 snacks-btn" data-food="almonds" data-amount="30" data-unit="g">
+                            <div class="meal-item">
+                                <i class="fas fa-nut"></i>
+                                <span>Almonds</span>
+                                <small>30g</small>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="mt-3">
+                    <button class="btn btn-info" onclick="clearAllMeals()">Clear All Meals</button>
+                    <button class="btn btn-warning" onclick="addSampleFoods()">Add Sample Foods</button>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <h4>Current Meal</h4>
+                <div class="current-meal-container">
+                    <div class="current-meal-header">
+                        <div class="current-meal-title">
+                            <div class="current-meal-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <span id="currentMealTitle">Breakfast</span>
+                        </div>
+                        <div class="current-meal-stats">
+                            <div class="meal-stat">
+                                <span class="meal-stat-number" id="mealItemCount">0</span>
+                                <span class="meal-stat-label">Items</span>
+                            </div>
+                            <div class="meal-stat">
+                                <span class="meal-stat-number" id="mealCalories">0</span>
+                                <span class="meal-stat-label">Calories</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="food-list-container">
+                        <div id="foodList">
+                            <div class="empty-meal-state">
+                                <div class="empty-meal-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <div class="empty-meal-title">No foods added yet</div>
+                                <div class="empty-meal-description">
+                                    Click on food cards above to add items to your breakfast meal.<br>
+                                    Track your nutrition and reach your daily goals!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="daily-totals-card">
+                    <div class="daily-totals-header">
+                        <div class="daily-totals-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <div class="daily-totals-title">Daily Totals</div>
+                    </div>
+                    <div class="totals-grid">
+                        <div class="total-item">
+                            <span class="total-value" id="totalCalories">0</span>
+                            <span class="total-label">Calories</span>
+                        </div>
+                        <div class="total-item">
+                            <span class="total-value" id="totalProtein">0g</span>
+                            <span class="total-label">Protein</span>
+                        </div>
+                        <div class="total-item">
+                            <span class="total-value" id="totalCarbs">0g</span>
+                            <span class="total-label">Carbs</span>
+                        </div>
+                        <div class="total-item">
+                            <span class="total-value" id="totalFats">0g</span>
+                            <span class="total-label">Fats</span>
+                        </div>
+                    </div>
+                    <div class="progress-indicators">
+                        <div class="progress-dot active"></div>
+                        <div class="progress-dot"></div>
+                        <div class="progress-dot"></div>
+                        <div class="progress-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <a href="pages/dashboard.php" class="btn btn-secondary">← Back to Dashboard</a>
+            <a href="test_all_meal_cards.html" class="btn btn-info">Test All Meal Cards</a>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentMealType = 'breakfast';
+        let dailyMeals = {
+            breakfast: [],
+            lunch: [],
+            dinner: [],
+            snacks: []
+        };
+
+        // Mock food database
+        const foodDatabase = {
+            'eggs': { name: 'Eggs', caloriesPer100g: 155, protein: 13, carbs: 1.1, fats: 11, fiber: 0, sugar: 1.1 },
+            'chicken_breast': { name: 'Chicken Breast', caloriesPer100g: 165, protein: 31, carbs: 0, fats: 3.6, fiber: 0, sugar: 0 },
+            'salmon': { name: 'Salmon', caloriesPer100g: 208, protein: 25, carbs: 0, fats: 12, fiber: 0, sugar: 0 },
+            'almonds': { name: 'Almonds', caloriesPer100g: 579, protein: 21.2, carbs: 21.6, fats: 49.9, fiber: 12.5, sugar: 4.4 }
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            setupMealOptions();
+        });
+
+        // Setup meal options
+        function setupMealOptions() {
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.breakfast-btn')) {
+                    const btn = e.target.closest('.breakfast-btn');
+                    addMealFood('breakfast', btn.dataset.food, btn.dataset.amount, btn.dataset.unit);
+                }
+                if (e.target.closest('.lunch-btn')) {
+                    const btn = e.target.closest('.lunch-btn');
+                    addMealFood('lunch', btn.dataset.food, btn.dataset.amount, btn.dataset.unit);
+                }
+                if (e.target.closest('.dinner-btn')) {
+                    const btn = e.target.closest('.dinner-btn');
+                    addMealFood('dinner', btn.dataset.food, btn.dataset.amount, btn.dataset.unit);
+                }
+                if (e.target.closest('.snacks-btn')) {
+                    const btn = e.target.closest('.snacks-btn');
+                    addMealFood('snacks', btn.dataset.food, btn.dataset.amount, btn.dataset.unit);
+                }
+            });
+        }
+
+        // Add meal food
+        function addMealFood(mealType, foodKey, amount, unit) {
+            currentMealType = mealType;
+            document.getElementById('currentMealTitle').textContent = mealType.charAt(0).toUpperCase() + mealType.slice(1);
+            
+            const food = foodDatabase[foodKey];
+            if (!food) return;
+            
+            const convertedAmount = convertPortionToGrams(parseFloat(amount), unit, food.name);
+            const calories = (food.caloriesPer100g * convertedAmount) / 100;
+            const protein = (food.protein * convertedAmount) / 100;
+            const carbs = (food.carbs * convertedAmount) / 100;
+            const fats = (food.fats * convertedAmount) / 100;
+            
+            const foodData = {
+                id: Date.now() + Math.random(),
+                name: food.name,
+                amount: `${amount} ${unit}`,
+                calories: Math.round(calories),
+                protein: Math.round(protein),
+                carbs: Math.round(carbs),
+                fats: Math.round(fats),
+                fiber: Math.round((food.fiber * convertedAmount) / 100),
+                sugar: Math.round((food.sugar * convertedAmount) / 100)
+            };
+            
+            dailyMeals[currentMealType].push(foodData);
+            updateCurrentMealDisplay();
+            updateDailyTotals();
+        }
+
+        // Update current meal display
+        function updateCurrentMealDisplay() {
+            const foodList = document.getElementById('foodList');
+            const currentMealFoods = dailyMeals[currentMealType];
+            
+            if (currentMealFoods.length === 0) {
+                foodList.innerHTML = `
+                    <div class="empty-meal-state">
+                        <div class="empty-meal-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="empty-meal-title">No foods added yet</div>
+                        <div class="empty-meal-description">
+                            Click on food cards above to add items to your ${currentMealType} meal.<br>
+                            Track your nutrition and reach your daily goals!
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+            
+            foodList.innerHTML = currentMealFoods.map(food => `
+                <div class="food-item">
+                    <div class="meal-type-indicator ${currentMealType}">${currentMealType}</div>
+                    <div class="food-item-header">
+                        <div class="food-info">
+                            <div class="food-name">${food.name}</div>
+                            <div class="food-amount">${food.amount}</div>
+                        </div>
+                        <div class="food-actions">
+                            <div class="food-calories">${food.calories}</div>
+                            <button class="remove-food-btn" onclick="removeFoodFromMeal('${food.id}', '${currentMealType}')" title="Remove food">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="nutrition-grid">
+                        <div class="nutrition-item protein">
+                            <span class="nutrition-label">Protein</span>
+                            <span class="nutrition-value">${food.protein}g</span>
+                        </div>
+                        <div class="nutrition-item carbs">
+                            <span class="nutrition-label">Carbs</span>
+                            <span class="nutrition-value">${food.carbs}g</span>
+                        </div>
+                        <div class="nutrition-item fats">
+                            <span class="nutrition-label">Fats</span>
+                            <span class="nutrition-value">${food.fats}g</span>
+                        </div>
+                        <div class="nutrition-item fiber">
+                            <span class="nutrition-label">Fiber</span>
+                            <span class="nutrition-value">${food.fiber}g</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Update meal stats
+            const mealCalories = currentMealFoods.reduce((sum, food) => sum + food.calories, 0);
+            document.getElementById('mealItemCount').textContent = currentMealFoods.length;
+            document.getElementById('mealCalories').textContent = mealCalories;
+        }
+
+        // Update daily totals
+        function updateDailyTotals() {
+            let totalCalories = 0;
+            let totalProtein = 0;
+            let totalCarbs = 0;
+            let totalFats = 0;
+            
+            Object.values(dailyMeals).forEach(meal => {
+                meal.forEach(food => {
+                    totalCalories += food.calories;
+                    totalProtein += food.protein;
+                    totalCarbs += food.carbs;
+                    totalFats += food.fats;
+                });
+            });
+            
+            document.getElementById('totalCalories').textContent = totalCalories;
+            document.getElementById('totalProtein').textContent = totalProtein + 'g';
+            document.getElementById('totalCarbs').textContent = totalCarbs + 'g';
+            document.getElementById('totalFats').textContent = totalFats + 'g';
+        }
+
+        // Remove food from meal
+        function removeFoodFromMeal(foodId, mealType) {
+            dailyMeals[mealType] = dailyMeals[mealType].filter(food => food.id !== foodId);
+            updateCurrentMealDisplay();
+            updateDailyTotals();
+        }
+
+        // Clear all meals
+        function clearAllMeals() {
+            dailyMeals = {
+                breakfast: [],
+                lunch: [],
+                dinner: [],
+                snacks: []
+            };
+            updateCurrentMealDisplay();
+            updateDailyTotals();
+        }
+
+        // Add sample foods
+        function addSampleFoods() {
+            addMealFood('breakfast', 'eggs', '2', 'large');
+            addMealFood('lunch', 'chicken_breast', '150', 'g');
+            addMealFood('dinner', 'salmon', '120', 'g');
+            addMealFood('snacks', 'almonds', '30', 'g');
+        }
+
+        // Convert portion to grams
+        function convertPortionToGrams(amount, unit, foodName) {
+            const conversions = {
+                'g': 1,
+                'ml': 1,
+                'large': 50,
+                'medium': 30,
+                'slice': 25,
+                'tbsp': 15,
+                'tsp': 5
+            };
+            return amount * (conversions[unit] || 1);
+        }
+    </script>
+
+    <style>
+        .meal-item {
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .meal-item i {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .meal-item span {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .meal-item small {
+            display: block;
+            color: #666;
+        }
+    </style>
+</body>
+</html>

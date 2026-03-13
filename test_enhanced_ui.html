@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced UI Showcase</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="container-fluid">
+            <!-- Enhanced Header -->
+            <div class="dashboard-header animate-fade-in-up">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <h1 class="dashboard-title">Enhanced UI Showcase 🎨</h1>
+                        <p class="dashboard-subtitle">Experience the modern, beautiful interface with enhanced animations and improved user experience</p>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <div class="d-flex align-items-center justify-content-lg-end">
+                            <div class="me-3 text-center">
+                                <div class="stat-number">100</div>
+                                <div class="stat-label">UI Score</div>
+                            </div>
+                            <div class="stat-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Stats Cards -->
+            <div class="dashboard-stats animate-fade-in-up">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="stat-number">95%</div>
+                            <div class="stat-label">Performance</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Responsive</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-magic"></i>
+                            </div>
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Animations</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stat-number">5.0</div>
+                            <div class="stat-label">User Rating</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Navigation Tabs -->
+            <ul class="nav nav-tabs animate-fade-in-up" id="mainTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="componentsTab" data-bs-toggle="tab" data-bs-target="#componentsContent" type="button" role="tab">
+                        <i class="fas fa-puzzle-piece me-2"></i>Components
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="animationsTab" data-bs-toggle="tab" data-bs-target="#animationsContent" type="button" role="tab">
+                        <i class="fas fa-play me-2"></i>Animations
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="interactionsTab" data-bs-toggle="tab" data-bs-target="#interactionsContent" type="button" role="tab">
+                        <i class="fas fa-mouse-pointer me-2"></i>Interactions
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="responsiveTab" data-bs-toggle="tab" data-bs-target="#responsiveContent" type="button" role="tab">
+                        <i class="fas fa-mobile-alt me-2"></i>Responsive
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content animate-fade-in-up" id="mainTabContent">
+                <!-- Components Tab -->
+                <div class="tab-pane fade show active" id="componentsContent" role="tabpanel">
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="calculator-container">
+                                <div class="calculator-header">
+                                    <h3 class="calculator-title">Enhanced Calculator</h3>
+                                    <p class="calculator-subtitle">Modern form design with smooth interactions</p>
+                                </div>
+                                <div class="calculator-form">
+                                    <div class="form-group">
+                                        <label class="form-label">Weight (kg)</label>
+                                        <input type="number" class="form-control" placeholder="Enter your weight" value="70">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Height (cm)</label>
+                                        <input type="number" class="form-control" placeholder="Enter your height" value="175">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Age</label>
+                                        <input type="number" class="form-control" placeholder="Enter your age" value="25">
+                                    </div>
+                                    <button class="btn-calculate">
+                                        <i class="fas fa-calculator me-2"></i>Calculate BMI
+                                    </button>
+                                </div>
+                                <div class="results-container">
+                                    <div class="results-title">Your BMI</div>
+                                    <div class="results-value">22.9</div>
+                                    <div class="results-unit">Normal Weight</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 mb-4">
+                            <div class="analytics-container">
+                                <div class="analytics-header">
+                                    <h3 class="analytics-title">Enhanced Analytics</h3>
+                                    <p class="analytics-subtitle">Beautiful data visualization</p>
+                                </div>
+                                <div class="chart-container">
+                                    <div class="chart-title">Nutrition Breakdown</div>
+                                    <canvas id="nutritionChart" width="400" height="200"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="food-cards-container">
+                                <div class="food-card" onclick="showAlert('Food card clicked!')">
+                                    <div class="food-card-icon">
+                                        <i class="fas fa-apple-alt"></i>
+                                    </div>
+                                    <div class="food-card-name">Apple</div>
+                                    <div class="food-card-amount">1 medium</div>
+                                </div>
+                                <div class="food-card" onclick="showAlert('Food card clicked!')">
+                                    <div class="food-card-icon">
+                                        <i class="fas fa-drumstick-bite"></i>
+                                    </div>
+                                    <div class="food-card-name">Chicken Breast</div>
+                                    <div class="food-card-amount">150g</div>
+                                </div>
+                                <div class="food-card" onclick="showAlert('Food card clicked!')">
+                                    <div class="food-card-icon">
+                                        <i class="fas fa-fish"></i>
+                                    </div>
+                                    <div class="food-card-name">Salmon</div>
+                                    <div class="food-card-amount">120g</div>
+                                </div>
+                                <div class="food-card" onclick="showAlert('Food card clicked!')">
+                                    <div class="food-card-icon">
+                                        <i class="fas fa-seedling"></i>
+                                    </div>
+                                    <div class="food-card-name">Broccoli</div>
+                                    <div class="food-card-amount">100g</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 mb-4">
+                            <div class="current-meal-container">
+                                <div class="current-meal-header">
+                                    <div class="current-meal-title">
+                                        <div class="current-meal-icon">
+                                            <i class="fas fa-utensils"></i>
+                                        </div>
+                                        <span>Current Meal</span>
+                                    </div>
+                                    <div class="current-meal-stats">
+                                        <div class="meal-stat">
+                                            <span class="meal-stat-number">3</span>
+                                            <span class="meal-stat-label">Items</span>
+                                        </div>
+                                        <div class="meal-stat">
+                                            <span class="meal-stat-number">450</span>
+                                            <span class="meal-stat-label">Calories</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="food-list-container">
+                                    <div class="food-item">
+                                        <div class="meal-type-indicator breakfast">breakfast</div>
+                                        <div class="food-item-header">
+                                            <div class="food-info">
+                                                <div class="food-name">Oatmeal</div>
+                                                <div class="food-amount">50g dry</div>
+                                            </div>
+                                            <div class="food-actions">
+                                                <div class="food-calories">190</div>
+                                                <button class="remove-food-btn" onclick="showAlert('Food removed!')">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="nutrition-grid">
+                                            <div class="nutrition-item protein">
+                                                <span class="nutrition-label">Protein</span>
+                                                <span class="nutrition-value">7g</span>
+                                            </div>
+                                            <div class="nutrition-item carbs">
+                                                <span class="nutrition-label">Carbs</span>
+                                                <span class="nutrition-value">34g</span>
+                                            </div>
+                                            <div class="nutrition-item fats">
+                                                <span class="nutrition-label">Fats</span>
+                                                <span class="nutrition-value">3g</span>
+                                            </div>
+                                            <div class="nutrition-item fiber">
+                                                <span class="nutrition-label">Fiber</span>
+                                                <span class="nutrition-value">5g</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Animations Tab -->
+                <div class="tab-pane fade" id="animationsContent" role="tabpanel">
+                    <div class="row">
+                        <div class="col-lg-4 mb-4">
+                            <div class="stat-card animate-pulse">
+                                <div class="stat-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="stat-number">Pulse</div>
+                                <div class="stat-label">Animation</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-4">
+                            <div class="stat-card animate-fade-in-up">
+                                <div class="stat-icon">
+                                    <i class="fas fa-arrow-up"></i>
+                                </div>
+                                <div class="stat-number">Fade In</div>
+                                <div class="stat-label">Animation</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-4">
+                            <div class="stat-card animate-slide-in-left">
+                                <div class="stat-icon">
+                                    <i class="fas fa-arrow-left"></i>
+                                </div>
+                                <div class="stat-number">Slide In</div>
+                                <div class="stat-label">Animation</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="alert-enhanced alert-success">
+                                <i class="fas fa-check-circle me-2"></i>
+                                <strong>Success!</strong> Enhanced UI components are working perfectly with smooth animations.
+                            </div>
+                            <div class="alert-enhanced alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                <strong>Info:</strong> All animations are optimized for performance and accessibility.
+                            </div>
+                            <div class="alert-enhanced alert-warning">
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                <strong>Warning:</strong> Some animations may be disabled for users with motion sensitivity preferences.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactions Tab -->
+                <div class="tab-pane fade" id="interactionsContent" role="tabpanel">
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="calculator-container">
+                                <div class="calculator-header">
+                                    <h3 class="calculator-title">Interactive Elements</h3>
+                                    <p class="calculator-subtitle">Hover and click effects</p>
+                                </div>
+                                <div class="calculator-form">
+                                    <button class="btn-calculate" onclick="showLoading()">
+                                        <i class="fas fa-spinner me-2"></i>Show Loading
+                                    </button>
+                                    <button class="btn-calculate" onclick="showAlert('Button clicked!')">
+                                        <i class="fas fa-hand-pointer me-2"></i>Click Me
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 mb-4">
+                            <div class="bmr-container">
+                                <div class="bmr-header">
+                                    <h3 class="bmr-title">BMR Calculator</h3>
+                                    <p class="bmr-subtitle">Enhanced form interactions</p>
+                                </div>
+                                <div class="bmr-form">
+                                    <div class="form-group">
+                                        <label class="form-label">Gender</label>
+                                        <select class="form-control">
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Activity Level</label>
+                                        <select class="form-control">
+                                            <option>Sedentary</option>
+                                            <option>Lightly Active</option>
+                                            <option>Moderately Active</option>
+                                            <option>Very Active</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="bmr-results">
+                                    <div class="bmr-results-title">Your BMR</div>
+                                    <div class="bmr-results-value">1,650</div>
+                                    <div class="bmr-results-unit">calories/day</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Responsive Tab -->
+                <div class="tab-pane fade" id="responsiveContent" role="tabpanel">
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <div class="alert-enhanced alert-info">
+                                <i class="fas fa-mobile-alt me-2"></i>
+                                <strong>Responsive Design:</strong> This interface adapts beautifully to all screen sizes from mobile phones to large desktop displays.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="meal-plan-card">
+                                <div class="meal-plan-title">
+                                    <div class="meal-plan-icon">
+                                        <i class="fas fa-sun"></i>
+                                    </div>
+                                    Breakfast Plan
+                                </div>
+                                <div class="meal-plan-items">
+                                    <div class="meal-plan-item">
+                                        <div class="meal-plan-item-name">Oatmeal</div>
+                                        <div class="meal-plan-item-calories">300 cal</div>
+                                    </div>
+                                    <div class="meal-plan-item">
+                                        <div class="meal-plan-item-name">Berries</div>
+                                        <div class="meal-plan-item-calories">50 cal</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="meal-plan-card">
+                                <div class="meal-plan-title">
+                                    <div class="meal-plan-icon">
+                                        <i class="fas fa-sun"></i>
+                                    </div>
+                                    Lunch Plan
+                                </div>
+                                <div class="meal-plan-items">
+                                    <div class="meal-plan-item">
+                                        <div class="meal-plan-item-name">Chicken Salad</div>
+                                        <div class="meal-plan-item-calories">400 cal</div>
+                                    </div>
+                                    <div class="meal-plan-item">
+                                        <div class="meal-plan-item-name">Quinoa</div>
+                                        <div class="meal-plan-item-calories">200 cal</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="meal-plan-card">
+                                <div class="meal-plan-title">
+                                    <div class="meal-plan-icon">
+                                        <i class="fas fa-moon"></i>
+                                    </div>
+                                    Dinner Plan
+                                </div>
+                                <div class="meal-plan-items">
+                                    <div class="meal-plan-item">
+                                        <div class="meal-plan-item-name">Salmon</div>
+                                        <div class="meal-plan-item-calories">350 cal</div>
+                                    </div>
+                                    <div class="meal-plan-item">
+                                        <div class="meal-plan-item-name">Vegetables</div>
+                                        <div class="meal-plan-item-calories">100 cal</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4 text-center">
+                <a href="pages/dashboard.php" class="btn btn-primary btn-lg">
+                    <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+                </a>
+                <a href="test_improved_ui.html" class="btn btn-outline-primary btn-lg ms-3">
+                    <i class="fas fa-eye me-2"></i>View Current Meal UI
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Initialize Chart
+        const ctx = document.getElementById('nutritionChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Protein', 'Carbs', 'Fats'],
+                datasets: [{
+                    data: [30, 45, 25],
+                    backgroundColor: [
+                        '#10b981',
+                        '#f59e0b',
+                        '#ef4444'
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            usePointStyle: true
+                        }
+                    }
+                }
+            }
+        });
+
+        // Utility Functions
+        function showAlert(message) {
+            alert(message);
+        }
+
+        function showLoading() {
+            const overlay = document.getElementById('loadingOverlay');
+            overlay.style.display = 'flex';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                showAlert('Loading complete!');
+            }, 2000);
+        }
+
+        // Add animation classes on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all stat cards
+        document.querySelectorAll('.stat-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

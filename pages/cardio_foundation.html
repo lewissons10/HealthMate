@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardio Foundation Workout</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div id="root" class="container mx-auto px-4 py-6"></div>
+
+    <script type="text/babel">
+        const { useEffect, useMemo, useRef, useState } = React;
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function CardioFoundation() {
+            const [workoutState, setWorkoutState] = useState('initial'); // 'initial', 'active', 'paused', 'completed'
+            const [currentExercise, setCurrentExercise] = useState(0);
+            const [timeRemaining, setTimeRemaining] = useState(0);
+            const [totalTime, setTotalTime] = useState(25 * 60); // 25 minutes in seconds
+            const [completedPhases, setCompletedPhases] = useState([]);
+            const [isPaused, setIsPaused] = useState(false);
+            
+            const intervalRef = useRef(null);
+
+            const workoutPhases = [
+                {
+                    name: 'Warm-up',
+                    duration: 5 * 60, // 5 minutes
+                    color: 'bg-blue-500',
+                    exercises: [
+                        { name: 'Brisk walk/march', duration: 2 * 60 },
+                        { name: 'Arm & leg swings', duration: 1 * 60 },
+                        { name: 'Ankle circles & hip rotations', duration: 1 * 60 },
+                        { name: 'Light side steps', duration: 1 * 60 }
+                    ]
+                },
+                {
+                    name: 'Main Cardio',
+                    duration: 15 * 60, // 15 minutes
+                    color: 'bg-green-500',
+                    exercises: [
+                        { name: 'Light jog', duration: 2 * 60 },
+                        { name: 'Walk', duration: 1 * 60 },
+                        { name: 'Light jog', duration: 2 * 60 },
+                        { name: 'Walk', duration: 1 * 60 },
+                        { name: 'Light jog', duration: 2 * 60 },
+                        { name: 'Walk', duration: 1 * 60 },
+                        { name: 'Low-impact jumping jacks', duration: 45 },
+                        { name: 'Walk', duration: 45 },
+                        { name: 'Knee lifts', duration: 45 },
+                        { name: 'Walk', duration: 45 }
+                    ]
+                },
+                {
+                    name: 'Cool-down',
+                    duration: 5 * 60, // 5 minutes
+                    color: 'bg-purple-500',
+                    exercises: [
+                        { name: 'Slow walk & breathing control', duration: 2 * 60 },
+                        { name: 'Calf stretches', duration: 1 * 60 },
+                        { name: 'Quad stretches', duration: 1 * 60 },
+                        { name: 'Hamstring stretches', duration: 1 * 60 }
+                    ]
+                }
+            ];
+
+            const allExercises = workoutPhases.flatMap(phase => 
+                phase.exercises.map(exercise => ({
+                    ...exercise,
+                    phaseName: phase.name,
+                    phaseColor: phase.color
+                }))
+            );
+
+            const currentExerciseData = allExercises[currentExercise];
+            const nextExerciseData = allExercises[currentExercise + 1];
+            const progress = ((totalTime - timeRemaining) / totalTime) * 100;
+            const currentPhase = workoutPhases.find(phase => 
+                allExercises.slice(0, currentExercise + 1).some(ex => ex.phaseName === phase.name)
+            );
+
+            const startWorkout = () => {
+                setWorkoutState('active');
+                setTimeRemaining(totalTime);
+                setCurrentExercise(0);
+                setCompletedPhases([]);
+                setIsPaused(false);
+                startTimer();
+            };
+
+            const startTimer = () => {
+                if (intervalRef.current) clearInterval(intervalRef.current);
+                
+                intervalRef.current = setInterval(() => {
+                    setTimeRemaining(prev => {
+                        if (prev <= 1) {
+                            setWorkoutState('completed');
+                            clearInterval(intervalRef.current);
+                            return 0;
+                        }
+                        return prev - 1;
+                    });
+                }, 1000);
+            };
+
+            const pauseWorkout = () => {
+                setIsPaused(true);
+                clearInterval(intervalRef.current);
+            };
+
+            const resumeWorkout = () => {
+                setIsPaused(false);
+                startTimer();
+            };
+
+            const endWorkout = () => {
+                clearInterval(intervalRef.current);
+                setWorkoutState('initial');
+                setTimeRemaining(0);
+                setCurrentExercise(0);
+                setCompletedPhases([]);
+                setIsPaused(false);
+            };
+
+            // Auto-advance exercises
+            useEffect(() => {
+                if (workoutState === 'active' && !isPaused && currentExerciseData) {
+                    const exerciseStartTime = totalTime - timeRemaining;
+                    const exerciseEndTime = exerciseStartTime + currentExerciseData.duration;
+                    const currentTime = totalTime - timeRemaining;
+                    
+                    if (currentTime >= exerciseEndTime && currentExercise < allExercises.length - 1) {
+                        setCurrentExercise(prev => prev + 1);
+                        
+                        // Mark phase as completed
+                        const phaseName = currentExerciseData.phaseName;
+                        if (!completedPhases.includes(phaseName)) {
+                            setCompletedPhases(prev => [...prev, phaseName]);
+                        }
+                    }
+                }
+            }, [timeRemaining, workoutState, isPaused, currentExercise, currentExerciseData, totalTime, completedPhases]);
+
+            // Cleanup on unmount
+            useEffect(() => {
+                return () => {
+                    if (intervalRef.current) clearInterval(intervalRef.current);
+                };
+            }, []);
+
+            if (workoutState === 'initial') {
+                return (
+                    <div className="max-w-md mx-auto">
+                        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                            <div className="bg-gradient-to-r from-blue-500 to-green-500 p-6 text-white">
+                                <h1 className="text-2xl font-bold mb-2">Cardio Foundation</h1>
+                                <p className="text-blue-100">Perfect for beginners: walking, light jogging, and basic cardio moves</p>
+                            </div>
+                            <div className="p-6">
+                                <div className="flex items-center justify-between mb-6">
+                                    <div className="flex items-center space-x-4">
+                                        <div className="flex items-center text-gray-600">
+                                            <i className="fas fa-clock mr-2"></i>
+                                            <span className="font-medium">25 min</span>
+                                        </div>
+                                        <div className="flex items-center text-gray-600">
+                                            <i className="fas fa-fire mr-2"></i>
+                                            <span className="font-medium">180 cal</span>
+                                        </div>
+                                        <div className="flex items-center text-gray-600">
+                                            <i className="fas fa-signal mr-2"></i>
+                                            <span className="font-medium">Beginner</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button
+                                    onClick={startWorkout}
+                                    className="w-full bg-gradient-to-r from-blue-500 to-green-500 text-white py-3 px-6 rounded-lg font-medium hover:from-blue-600 hover:to-green-600 transition-all duration-200 flex items-center justify-center"
+                                >
+                                    <i className="fas fa-play mr-2"></i>
+                                    Start Workout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                );
+            }
+
+            if (workoutState === 'completed') {
+                return (
+                    <div className="max-w-md mx-auto">
+                        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                            <div className="bg-gradient-to-r from-green-500 to-blue-500 p-6 text-white text-center">
+                                <i className="fas fa-trophy text-4xl mb-4"></i>
+                                <h1 className="text-2xl font-bold mb-2">Workout Complete!</h1>
+                                <p className="text-green-100">Great job! You burned approximately 180 calories.</p>
+                            </div>
+                            <div className="p-6">
+                                <div className="grid grid-cols-3 gap-4 mb-6">
+                                    <div className="text-center">
+                                        <div className="text-2xl font-bold text-gray-800">25</div>
+                                        <div className="text-sm text-gray-600">Minutes</div>
+                                    </div>
+                                    <div className="text-center">
+                                        <div className="text-2xl font-bold text-gray-800">180</div>
+                                        <div className="text-sm text-gray-600">Calories</div>
+                                    </div>
+                                    <div className="text-center">
+                                        <div className="text-2xl font-bold text-gray-800">100%</div>
+                                        <div className="text-sm text-gray-600">Complete</div>
+                                    </div>
+                                </div>
+                                <button
+                                    onClick={endWorkout}
+                                    className="w-full bg-gray-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-gray-700 transition-colors duration-200"
+                                >
+                                    Back to Workouts
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                );
+            }
+
+            return (
+                <div className="max-w-md mx-auto">
+                    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                        {/* Header */}
+                        <div className="bg-gradient-to-r from-blue-500 to-green-500 p-4 text-white">
+                            <div className="flex items-center justify-between">
+                                <h1 className="text-xl font-bold">Cardio Foundation</h1>
+                                <div className="text-right">
+                                    <div className="text-2xl font-mono font-bold">{formatTime(timeRemaining)}</div>
+                                    <div className="text-sm text-blue-100">Time Remaining</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Progress Bar */}
+                        <div className="px-4 py-3 bg-gray-50">
+                            <div className="w-full bg-gray-200 rounded-full h-2">
+                                <div 
+                                    className="bg-gradient-to-r from-blue-500 to-green-500 h-2 rounded-full transition-all duration-300"
+                                    style={{ width: `${progress}%` }}
+                                ></div>
+                            </div>
+                            <div className="flex justify-between text-xs text-gray-600 mt-1">
+                                <span>0%</span>
+                                <span className="font-medium">{Math.round(progress)}% Complete</span>
+                                <span>100%</span>
+                            </div>
+                        </div>
+
+                        {/* Current Exercise */}
+                        <div className="p-6">
+                            <div className="text-center mb-6">
+                                <div className={`inline-block px-3 py-1 rounded-full text-sm font-medium text-white mb-4 ${currentPhase?.color || 'bg-gray-500'}`}>
+                                    {currentPhase?.name || 'Workout'}
+                                </div>
+                                <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                                    {currentExerciseData?.name || 'Preparing...'}
+                                </h2>
+                                <div className="text-4xl font-mono font-bold text-blue-600 mb-2">
+                                    {formatTime(Math.max(0, currentExerciseData?.duration - (totalTime - timeRemaining - allExercises.slice(0, currentExercise).reduce((sum, ex) => sum + ex.duration, 0)) || 0))}
+                                </div>
+                                <p className="text-gray-600">Exercise {currentExercise + 1} of {allExercises.length}</p>
+                            </div>
+
+                            {/* Up Next */}
+                            {nextExerciseData && (
+                                <div className="bg-gray-50 rounded-lg p-4 mb-6">
+                                    <h3 className="text-sm font-medium text-gray-600 mb-2">Up Next:</h3>
+                                    <div className="flex items-center justify-between">
+                                        <span className="font-medium text-gray-800">{nextExerciseData.name}</span>
+                                        <span className="text-sm text-gray-600">{formatTime(nextExerciseData.duration)}</span>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Phase Checklist */}
+                            <div className="mb-6">
+                                <h3 className="text-sm font-medium text-gray-600 mb-3">Progress:</h3>
+                                <div className="space-y-2">
+                                    {workoutPhases.map((phase, index) => (
+                                        <div key={phase.name} className="flex items-center">
+                                            <div className={`w-4 h-4 rounded-full mr-3 flex items-center justify-center ${
+                                                completedPhases.includes(phase.name) 
+                                                    ? 'bg-green-500' 
+                                                    : currentPhase?.name === phase.name 
+                                                        ? 'bg-blue-500' 
+                                                        : 'bg-gray-300'
+                                            }`}>
+                                                {completedPhases.includes(phase.name) && (
+                                                    <i className="fas fa-check text-white text-xs"></i>
+                                                )}
+                                            </div>
+                                            <span className={`text-sm ${
+                                                completedPhases.includes(phase.name) 
+                                                    ? 'text-green-600 font-medium' 
+                                                    : currentPhase?.name === phase.name 
+                                                        ? 'text-blue-600 font-medium' 
+                                                        : 'text-gray-500'
+                                            }`}>
+                                                {phase.name}
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Controls */}
+                            <div className="flex space-x-3">
+                                {isPaused ? (
+                                    <button
+                                        onClick={resumeWorkout}
+                                        className="flex-1 bg-green-500 text-white py-3 px-4 rounded-lg font-medium hover:bg-green-600 transition-colors duration-200 flex items-center justify-center"
+                                    >
+                                        <i className="fas fa-play mr-2"></i>
+                                        Resume
+                                    </button>
+                                ) : (
+                                    <button
+                                        onClick={pauseWorkout}
+                                        className="flex-1 bg-yellow-500 text-white py-3 px-4 rounded-lg font-medium hover:bg-yellow-600 transition-colors duration-200 flex items-center justify-center"
+                                    >
+                                        <i className="fas fa-pause mr-2"></i>
+                                        Pause
+                                    </button>
+                                )}
+                                <button
+                                    onClick={endWorkout}
+                                    className="flex-1 bg-red-500 text-white py-3 px-4 rounded-lg font-medium hover:bg-red-600 transition-colors duration-200 flex items-center justify-center"
+                                >
+                                    <i className="fas fa-stop mr-2"></i>
+                                    End
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<CardioFoundation />, document.getElementById('root'));
+    </script>
+</body>
+</html>

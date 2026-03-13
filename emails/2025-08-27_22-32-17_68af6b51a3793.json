@@ -1,0 +1,8 @@
+{
+    "to": "ansonlewis2003@gmail.com",
+    "from": "noreply@healthmate.com",
+    "from_name": "HealthMate",
+    "subject": "HealthMate SMTP Test - 2025-08-27 22:32:13",
+    "message": "This is a test email from HealthMate using Gmail SMTP.\n\nIf you receive this email, the SMTP configuration is working correctly.\nTest sent at: 2025-08-27 22:32:13\n\nBest regards,\nHealthMate Team",
+    "timestamp": "2025-08-27 22:32:17"
+}

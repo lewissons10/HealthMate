@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Breakfast API</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Debug Breakfast API Integration</h2>
+        <p>This page will help debug why breakfast food cards aren't working in the dashboard.</p>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Test API Calls</h4>
+                <div class="mb-3">
+                    <button class="btn btn-primary" onclick="testSearchAPI()">Test Search API</button>
+                    <button class="btn btn-success" onclick="testGetAllAPI()">Test Get All API</button>
+                </div>
+                
+                <div id="apiResults" class="border p-3 rounded" style="min-height: 200px;">
+                    <div class="text-muted">Click buttons above to test API calls...</div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <h4>Test Breakfast Food Cards</h4>
+                <div class="row">
+                    <div class="col-md-6 mb-2">
+                        <button class="btn btn-outline-primary w-100" onclick="testBreakfastCard('chicken_breast', '150', 'g')">
+                            <div class="breakfast-item">
+                                <i class="fas fa-drumstick-bite"></i>
+                                <span>Chicken Breast</span>
+                                <small>150g</small>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <button class="btn btn-outline-primary w-100" onclick="testBreakfastCard('eggs', '2', 'large')">
+                            <div class="breakfast-item">
+                                <i class="fas fa-egg"></i>
+                                <span>Eggs</span>
+                                <small>2 large</small>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="breakfastResults" class="border p-3 rounded mt-3" style="min-height: 200px;">
+                    <div class="text-muted">Click breakfast cards above to test...</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <a href="pages/dashboard.php" class="btn btn-secondary">← Back to Dashboard</a>
+            <a href="test_current_meal.html" class="btn btn-info">Test Current Meal</a>
+        </div>
+    </div>
+
+    <script>
+        function testSearchAPI() {
+            const resultsDiv = document.getElementById('apiResults');
+            resultsDiv.innerHTML = '<div class="text-info">Testing search API...</div>';
+            
+            fetch('php/food_api.php?action=search&q=chicken&limit=3')
+                .then(response => {
+                    console.log('Response status:', response.status);
+                    console.log('Response headers:', response.headers);
+                    return response.text();
+                })
+                .then(text => {
+                    console.log('Raw response:', text);
+                    try {
+                        const data = JSON.parse(text);
+                        resultsDiv.innerHTML = `
+                            <div class="alert alert-success">
+                                <h6>Search API Success!</h6>
+                                <pre>${JSON.stringify(data, null, 2)}</pre>
+                            </div>
+                        `;
+                    } catch (e) {
+                        resultsDiv.innerHTML = `
+                            <div class="alert alert-danger">
+                                <h6>JSON Parse Error!</h6>
+                                <p>Raw response: ${text}</p>
+                                <p>Error: ${e.message}</p>
+                            </div>
+                        `;
+                    }
+                })
+                .catch(error => {
+                    console.error('Fetch error:', error);
+                    resultsDiv.innerHTML = `
+                        <div class="alert alert-danger">
+                            <h6>Fetch Error!</h6>
+                            <p>${error.message}</p>
+                        </div>
+                    `;
+                });
+        }
+
+        function testGetAllAPI() {
+            const resultsDiv = document.getElementById('apiResults');
+            resultsDiv.innerHTML = '<div class="text-info">Testing get all API...</div>';
+            
+            fetch('php/food_api.php?action=get_all&limit=3')
+                .then(response => {
+                    console.log('Response status:', response.status);
+                    return response.text();
+                })
+                .then(text => {
+                    console.log('Raw response:', text);
+                    try {
+                        const data = JSON.parse(text);
+                        resultsDiv.innerHTML = `
+                            <div class="alert alert-success">
+                                <h6>Get All API Success!</h6>
+                                <pre>${JSON.stringify(data, null, 2)}</pre>
+                            </div>
+                        `;
+                    } catch (e) {
+                        resultsDiv.innerHTML = `
+                            <div class="alert alert-danger">
+                                <h6>JSON Parse Error!</h6>
+                                <p>Raw response: ${text}</p>
+                                <p>Error: ${e.message}</p>
+                            </div>
+                        `;
+                    }
+                })
+                .catch(error => {
+                    console.error('Fetch error:', error);
+                    resultsDiv.innerHTML = `
+                        <div class="alert alert-danger">
+                            <h6>Fetch Error!</h6>
+                            <p>${error.message}</p>
+                        </div>
+                    `;
+                });
+        }
+
+        function testBreakfastCard(foodKey, amount, unit) {
+            const resultsDiv = document.getElementById('breakfastResults');
+            resultsDiv.innerHTML = `<div class="text-info">Testing breakfast card: ${foodKey}...</div>`;
+            
+            console.log('Testing breakfast card:', { foodKey, amount, unit });
+            
+            // Simulate the addBreakfastFood function
+            const food = foodDatabase[foodKey];
+            if (food) {
+                console.log('Found in local database:', food);
+                resultsDiv.innerHTML = `
+                    <div class="alert alert-info">
+                        <h6>Found in Local Database!</h6>
+                        <p>Food: ${food.name}</p>
+                        <p>Calories/100g: ${food.caloriesPer100g}</p>
+                        <p>Protein: ${food.protein}g</p>
+                        <p>This would be added to breakfast successfully.</p>
+                    </div>
+                `;
+            } else {
+                console.log('Not found locally, searching API...');
+                fetch(`php/food_api.php?action=search&q=${encodeURIComponent(foodKey)}&limit=1`)
+                    .then(response => {
+                        console.log('API response status:', response.status);
+                        return response.text();
+                    })
+                    .then(text => {
+                        console.log('API raw response:', text);
+                        try {
+                            const data = JSON.parse(text);
+                            if (data.error || !data.foods || data.foods.length === 0) {
+                                resultsDiv.innerHTML = `
+                                    <div class="alert alert-warning">
+                                        <h6>Food Not Found in API!</h6>
+                                        <p>Error: ${data.error || 'No foods found'}</p>
+                                        <p>This would show a warning notification.</p>
+                                    </div>
+                                `;
+                            } else {
+                                const apiFood = data.foods[0];
+                                resultsDiv.innerHTML = `
+                                    <div class="alert alert-success">
+                                        <h6>Found in API!</h6>
+                                        <p>Food: ${apiFood.name}</p>
+                                        <p>Calories/100g: ${apiFood.calories_per_100g}</p>
+                                        <p>Protein: ${apiFood.protein}g</p>
+                                        <p>This would be added to breakfast successfully.</p>
+                                    </div>
+                                `;
+                            }
+                        } catch (e) {
+                            resultsDiv.innerHTML = `
+                                <div class="alert alert-danger">
+                                    <h6>API Response Parse Error!</h6>
+                                    <p>Raw response: ${text}</p>
+                                    <p>Error: ${e.message}</p>
+                                </div>
+                            `;
+                        }
+                    })
+                    .catch(error => {
+                        console.error('API fetch error:', error);
+                        resultsDiv.innerHTML = `
+                            <div class="alert alert-danger">
+                                <h6>API Fetch Error!</h6>
+                                <p>${error.message}</p>
+                            </div>
+                        `;
+                    });
+            }
+        }
+
+        // Mock food database for testing
+        const foodDatabase = {
+            'chicken_breast': { name: 'Chicken Breast', caloriesPer100g: 165, protein: 31, carbs: 0, fats: 3.6, fiber: 0, sugar: 0 },
+            'eggs': { name: 'Eggs', caloriesPer100g: 155, protein: 13, carbs: 1.1, fats: 11, fiber: 0, sugar: 1.1 }
+        };
+    </script>
+
+    <style>
+        .breakfast-item {
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .breakfast-item i {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .breakfast-item span {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .breakfast-item small {
+            display: block;
+            color: #666;
+        }
+        
+        pre {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</body>
+</html>

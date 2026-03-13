@@ -1,0 +1,1094 @@
+/* Enhanced Text Brightness for All Components */
+
+/* Breakfast Options Text Enhancement */
+.breakfast-options h6 {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.category-title {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.category-title small {
+    color: var(--text-muted) !important;
+    font-weight: 500;
+}
+
+.breakfast-item span {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.breakfast-item small {
+    color: var(--text-muted) !important;
+    font-weight: 500;
+}
+
+.breakfast-combo span {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.breakfast-combo small {
+    color: var(--text-muted) !important;
+    font-weight: 500;
+}
+
+.combo-calories {
+    color: var(--text-secondary) !important;
+    font-weight: 700;
+}
+
+/* Calculator Text Enhancement */
+.calc-form h6, .recipe-form h6, .comparison-form h6 {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.food-result-card h5 {
+    color: var(--text-white) !important;
+    font-weight: 700;
+}
+
+.food-result-card p {
+    color: var(--text-white) !important;
+    font-weight: 500;
+}
+
+.nutrition-item h6 {
+    color: var(--text-white) !important;
+    font-weight: 700;
+}
+
+.nutrition-item p {
+    color: var(--text-white) !important;
+    font-weight: 500;
+}
+
+.recipe-summary h5 {
+    color: var(--text-white) !important;
+    font-weight: 700;
+}
+
+.recipe-summary h6 {
+    color: var(--text-white) !important;
+    font-weight: 700;
+}
+
+.recipe-summary p {
+    color: var(--text-white) !important;
+    font-weight: 500;
+}
+
+.comparison-food h6 {
+    color: var(--text-white) !important;
+    font-weight: 700;
+}
+
+.comparison-food p {
+    color: var(--text-white) !important;
+    font-weight: 500;
+}
+
+.comparison-summary h6 {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.summary-item span {
+    color: var(--text-secondary) !important;
+    font-weight: 600;
+}
+
+.summary-item strong {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.recipe-ingredient span {
+    color: var(--text-secondary) !important;
+    font-weight: 600;
+}
+
+.recipe-ingredient strong {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+/* Chart and Analytics Text Enhancement */
+.chart-title {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.analytics-card h4 {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.analytics-card p {
+    color: var(--text-secondary) !important;
+    font-weight: 600;
+}
+
+.bmr-card h6 {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.bmr-card p {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+}
+
+.meal-plan-title {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.meal-plan-description {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+}
+
+.tip-card h6 {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.tip-card p {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+}
+
+.progress-item h6 {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.progress-item p {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+}
+
+/* Enhanced Dashboard Text */
+.dashboard-stats h3 {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.dashboard-stats p {
+    color: var(--text-secondary) !important;
+    font-weight: 600;
+}
+
+.workout-card h5 {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.workout-card p {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+}
+
+.leaderboard-item h6 {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.leaderboard-item p {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+}
+
+/* Enhanced Modal Text */
+.modal-title {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.modal-body p {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+}
+
+.modal-body h6 {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+/* Enhanced Form Text */
+.form-control:focus {
+    color: var(--text-primary) !important;
+    font-weight: 500;
+}
+
+.form-select {
+    color: var(--text-primary) !important;
+    font-weight: 500;
+}
+
+.form-check-label {
+    color: var(--text-secondary) !important;
+    font-weight: 600;
+}
+
+/* Enhanced Badge Text */
+.badge {
+    font-weight: 600;
+}
+
+/* Enhanced Progress Text */
+.progress-label {
+    color: var(--text-secondary) !important;
+    font-weight: 600;
+}
+
+.progress-value {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+/* Enhanced List Text */
+.list-group-item {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+}
+
+.list-group-item.active {
+    color: var(--text-white) !important;
+    font-weight: 600;
+}
+
+/* Enhanced Table Text */
+.table th {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.table td {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+}
+
+/* Enhanced Alert Text */
+.alert {
+    font-weight: 500;
+}
+
+.alert-primary {
+    color: var(--text-accent) !important;
+}
+
+.alert-success {
+    color: var(--text-success) !important;
+}
+
+.alert-warning {
+    color: var(--text-warning) !important;
+}
+
+.alert-danger {
+    color: var(--text-danger) !important;
+}
+
+.alert-info {
+    color: var(--text-info) !important;
+}
+
+/* Enhanced Navigation Text */
+.navbar-brand {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.nav-link {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+}
+
+/* hover removed */
+
+.nav-link.active {
+    color: var(--text-accent) !important;
+    font-weight: 600;
+}
+
+/* Enhanced Card Text */
+.card-title, .card-header h5, .card-header h6 {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.card-text, .card-body p {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+}
+
+.card-subtitle {
+    color: var(--text-muted) !important;
+    font-weight: 500;
+}
+
+/* Enhanced Button Text */
+.btn {
+    font-weight: 600;
+}
+
+.btn-primary {
+    color: var(--text-white) !important;
+}
+
+.btn-secondary {
+    color: var(--text-white) !important;
+}
+
+.btn-outline-primary {
+    color: var(--text-accent) !important;
+    border-color: var(--text-accent);
+}
+
+/* hover removed */
+
+.btn-outline-secondary {
+    color: var(--text-secondary) !important;
+}
+
+.btn-outline-success {
+    color: var(--text-success) !important;
+}
+
+.btn-outline-danger {
+    color: var(--text-danger) !important;
+}
+
+.btn-outline-warning {
+    color: var(--text-warning) !important;
+}
+
+.btn-outline-info {
+    color: var(--text-info) !important;
+}
+
+/* Enhanced Form Text */
+.form-label {
+    color: var(--text-secondary) !important;
+    font-weight: 600;
+}
+
+.form-control {
+    color: var(--text-primary) !important;
+    font-weight: 500;
+}
+
+.form-control::placeholder {
+    color: var(--text-light) !important;
+}
+
+.form-text {
+    color: var(--text-muted) !important;
+    font-weight: 500;
+}
+
+/* Lunch Options Styles */
+.lunch-options {
+    background: var(--gray-50);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--gray-200);
+}
+
+.lunch-categories {
+    margin-top: 1rem;
+}
+
+.lunch-category {
+    background: white;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--gray-200);
+}
+
+.lunch-btn {
+    height: auto;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+/* hover removed */
+
+.lunch-item {
+    text-align: center;
+}
+
+.lunch-item i {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: currentColor;
+}
+
+.lunch-item span {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--text-bright);
+}
+
+.lunch-item small {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.lunch-combo-btn {
+    height: auto;
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+/* hover removed */
+
+.lunch-combo {
+    text-align: center;
+}
+
+.lunch-combo i {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+    display: block;
+    color: currentColor;
+}
+
+.lunch-combo span {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-bright);
+    font-size: 1.1rem;
+}
+
+.lunch-combo small {
+    display: block;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Dinner Options Styles */
+.dinner-options {
+    background: var(--gray-50);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--gray-200);
+}
+
+.dinner-categories {
+    margin-top: 1rem;
+}
+
+.dinner-category {
+    background: white;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--gray-200);
+}
+
+.dinner-btn {
+    height: auto;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+/* hover removed */
+
+.dinner-item {
+    text-align: center;
+}
+
+.dinner-item i {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: currentColor;
+}
+
+.dinner-item span {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--text-bright);
+}
+
+.dinner-item small {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.dinner-combo-btn {
+    height: auto;
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+/* hover removed */
+
+.dinner-combo {
+    text-align: center;
+}
+
+.dinner-combo i {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+    display: block;
+    color: currentColor;
+}
+
+.dinner-combo span {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-bright);
+    font-size: 1.1rem;
+}
+
+.dinner-combo small {
+    display: block;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Snacks Options Styles */
+.snacks-options {
+    background: var(--gray-50);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--gray-200);
+}
+
+.snacks-categories {
+    margin-top: 1rem;
+}
+
+.snacks-category {
+    background: white;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--gray-200);
+}
+
+.snacks-btn {
+    height: auto;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+/* hover removed */
+
+.snacks-item {
+    text-align: center;
+}
+
+.snacks-item i {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: currentColor;
+}
+
+.snacks-item span {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--text-bright);
+}
+
+.snacks-item small {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.snacks-combo-btn {
+    height: auto;
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+/* hover removed */
+
+.snacks-combo {
+    text-align: center;
+}
+
+.snacks-combo i {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+    display: block;
+    color: currentColor;
+}
+
+.snacks-combo span {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-bright);
+    font-size: 1.1rem;
+}
+
+.snacks-combo small {
+    display: block;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Enhanced Text Brightness for Meal Options */
+.lunch-options h6, .dinner-options h6, .snacks-options h6 {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.lunch-category .category-title, .dinner-category .category-title, .snacks-category .category-title {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.lunch-category .category-title small, .dinner-category .category-title small, .snacks-category .category-title small {
+    color: var(--text-muted) !important;
+    font-weight: 500;
+}
+
+.lunch-item span, .dinner-item span, .snacks-item span {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.lunch-item small, .dinner-item small, .snacks-item small {
+    color: var(--text-muted) !important;
+    font-weight: 500;
+}
+
+.lunch-combo span, .dinner-combo span, .snacks-combo span {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.lunch-combo small, .dinner-combo small, .snacks-combo small {
+    color: var(--text-muted) !important;
+    font-weight: 500;
+}
+
+.combo-calories {
+    color: var(--text-secondary) !important;
+    font-weight: 700;
+}
+
+/* Hover Effects for Meal Options */
+/* hover removed */
+
+/* hover removed */
+
+/* hover removed */
+
+/* hover removed */
+
+/* hover removed */
+
+/* hover removed */
+
+/* hover removed */
+
+/* hover removed */
+
+/* Detailed Lunch Meal Plans Styles */
+.lunch-meal-btn {
+    height: auto;
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+/* hover removed */
+
+.lunch-meal {
+    text-align: center;
+}
+
+.lunch-meal i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+    color: currentColor;
+}
+
+.lunch-meal span {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--text-bright);
+    font-size: 1.2rem;
+    line-height: 1.3;
+}
+
+.lunch-meal small {
+    display: block;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.meal-macros {
+    color: var(--text-secondary);
+    font-weight: 700;
+    font-size: 0.85rem;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 0.5rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced Text Brightness for Lunch Meals */
+.lunch-meal span {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.lunch-meal small {
+    color: var(--text-muted) !important;
+    font-weight: 500;
+}
+
+.meal-macros {
+    color: var(--text-secondary) !important;
+    font-weight: 700;
+}
+
+/* Hover Effects for Lunch Meals */
+/* hover removed */
+
+/* hover removed */
+
+/* hover removed */
+
+/* BMR Report Styles */
+.bmr-report-card {
+    background: white;
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    border: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+/* hover removed */
+
+.report-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.report-content h4 {
+    margin: 0;
+    font-weight: 700;
+    color: var(--text-bright);
+    font-size: 1.8rem;
+}
+
+.report-content p {
+    margin: 0.25rem 0;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.report-content small {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.bmr-analysis-card {
+    background: white;
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    border: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-sm);
+}
+
+.bmr-analysis-card h6 {
+    color: var(--text-bright);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+
+.analysis-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.analysis-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.analysis-item:last-child {
+    border-bottom: none;
+}
+
+.analysis-label {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.analysis-value {
+    font-weight: 700;
+    color: var(--text-bright);
+}
+
+.bmr-recommendations-card {
+    background: white;
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    border: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-sm);
+}
+
+.bmr-recommendations-card h6 {
+    color: var(--text-bright);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--success-color);
+    padding-bottom: 0.5rem;
+}
+
+.recommendations-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.recommendation-category {
+    background: var(--gray-50);
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    border-left: 4px solid var(--primary-color);
+}
+
+.category-title {
+    color: var(--text-bright);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+
+.recommendation-list {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.recommendation-list li {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.bmr-insights-card {
+    background: white;
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    border: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-sm);
+}
+
+.bmr-insights-card h6 {
+    color: var(--text-bright);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--info-color);
+    padding-bottom: 0.5rem;
+}
+
+.insights-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.insight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: var(--gray-50);
+    border-radius: var(--radius-sm);
+}
+
+.insight-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.insight-text strong {
+    display: block;
+    color: var(--text-bright);
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.insight-text p {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.bmr-chart-card {
+    background: white;
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    border: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-sm);
+}
+
+.bmr-chart-card h6 {
+    color: var(--text-bright);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--warning-color);
+    padding-bottom: 0.5rem;
+}
+
+.chart-legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+}
+
+.legend-item span:last-child {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* Enhanced Text Brightness for BMR Report */
+.bmr-report-card .report-content h4 {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.bmr-report-card .report-content p {
+    color: var(--text-primary) !important;
+    font-weight: 600;
+}
+
+.bmr-report-card .report-content small {
+    color: var(--text-muted) !important;
+}
+
+.bmr-analysis-card h6 {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.analysis-item .analysis-label {
+    color: var(--text-primary) !important;
+    font-weight: 600;
+}
+
+.analysis-item .analysis-value {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.bmr-recommendations-card h6 {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.category-title {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.recommendation-list li {
+    color: var(--text-primary) !important;
+    font-weight: 500;
+}
+
+.bmr-insights-card h6 {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.insight-text strong {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.insight-text p {
+    color: var(--text-primary) !important;
+}
+
+.bmr-chart-card h6 {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.legend-item span:last-child {
+    color: var(--text-primary) !important;
+    font-weight: 500;
+}
+
+/* removed wildcard hover/focus/active override */

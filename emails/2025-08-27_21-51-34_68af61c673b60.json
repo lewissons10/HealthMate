@@ -1,0 +1,8 @@
+{
+    "to": "ansonlewis2003@gmail.com",
+    "from": "noreply@healthmate.com",
+    "from_name": "HealthMate",
+    "subject": "New Feedback from HealthMate: Test Feedback",
+    "message": "You have received new feedback from HealthMate:\n\nName: Test User\nEmail: test@example.com\nSubject: Test Feedback\n\nMessage:\nThis is a test feedback message to verify email notifications are working.\n\nSubmitted on: 2025-08-27 21:51:32\n---\nThis is an automated notification from HealthMate Fitness App.\nTo reply, use the email address provided above.",
+    "timestamp": "2025-08-27 21:51:34"
+}

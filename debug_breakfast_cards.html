@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Breakfast Cards</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Debug Breakfast Cards Integration</h2>
+        <p>This page will help debug why breakfast food cards aren't showing in the current meal section.</p>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Breakfast Food Cards</h4>
+                <p>Click any card and check the console for debug information:</p>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-2">
+                        <button class="btn btn-outline-primary w-100 breakfast-btn" data-food="eggs" data-amount="2" data-unit="large">
+                            <div class="breakfast-item">
+                                <i class="fas fa-egg"></i>
+                                <span>Eggs</span>
+                                <small>2 large</small>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <button class="btn btn-outline-primary w-100 breakfast-btn" data-food="greek_yogurt" data-amount="200" data-unit="g">
+                            <div class="breakfast-item">
+                                <i class="fas fa-blender"></i>
+                                <span>Greek Yogurt</span>
+                                <small>200g</small>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <button class="btn btn-outline-success w-100 breakfast-btn" data-food="oatmeal" data-amount="50" data-unit="g">
+                            <div class="breakfast-item">
+                                <i class="fas fa-bowl-food"></i>
+                                <span>Oatmeal</span>
+                                <small>50g dry</small>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <button class="btn btn-outline-warning w-100 breakfast-btn" data-food="avocado" data-amount="0.5" data-unit="medium">
+                            <div class="breakfast-item">
+                                <i class="fas fa-leaf"></i>
+                                <span>Avocado</span>
+                                <small>1/2 medium</small>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="mt-3">
+                    <button class="btn btn-info" onclick="testAPI()">Test API Connection</button>
+                    <button class="btn btn-warning" onclick="testLocalDatabase()">Test Local Database</button>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <h4>Current Meal Section</h4>
+                <div class="border p-3 rounded" style="min-height: 300px;">
+                    <div id="foodList">
+                        <div class="text-center text-muted py-4">
+                            <i class="fas fa-utensils fa-2x mb-2"></i><br>
+                            No foods added to this meal yet. Click on breakfast food cards above!
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-3">
+                    <h5>Daily Totals</h5>
+                    <div class="row text-center">
+                        <div class="col-3">
+                            <div class="fw-bold text-primary">Calories</div>
+                            <div id="totalCalories">0</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="fw-bold text-success">Protein</div>
+                            <div id="totalProtein">0g</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="fw-bold text-warning">Carbs</div>
+                            <div id="totalCarbs">0g</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="fw-bold text-danger">Fats</div>
+                            <div id="totalFats">0g</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <h4>Debug Information</h4>
+            <div id="debugInfo" class="border p-3 rounded" style="background: #f8f9fa;">
+                <p>Click breakfast cards above to see debug information...</p>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <a href="pages/dashboard.php" class="btn btn-secondary">← Back to Dashboard</a>
+            <a href="test_current_meal.html" class="btn btn-info">Test Current Meal</a>
+        </div>
+    </div>
+
+    <script>
+        // Global variables (matching dashboard)
+        let currentMealType = 'breakfast';
+        let dailyMeals = {
+            breakfast: [],
+            lunch: [],
+            dinner: [],
+            snacks: []
+        };
+
+        // Mock food database for testing
+        const foodDatabase = {
+            'eggs': { name: 'Eggs', caloriesPer100g: 155, protein: 13, carbs: 1.1, fats: 11, fiber: 0, sugar: 1.1 },
+            'greek_yogurt': { name: 'Greek Yogurt', caloriesPer100g: 59, protein: 10, carbs: 3.6, fats: 0.4, fiber: 0, sugar: 3.6 },
+            'oatmeal': { name: 'Oatmeal', caloriesPer100g: 389, protein: 16.9, carbs: 66, fats: 6.9, fiber: 10.6, sugar: 0.99 },
+            'avocado': { name: 'Avocado', caloriesPer100g: 160, protein: 2, carbs: 8.5, fats: 14.7, fiber: 6.7, sugar: 0.7 }
+        };
+
+        // Debug function
+        function addDebugInfo(message) {
+            const debugDiv = document.getElementById('debugInfo');
+            const timestamp = new Date().toLocaleTimeString();
+            debugDiv.innerHTML += `<div>[${timestamp}] ${message}</div>`;
+            console.log(`[${timestamp}] ${message}`);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            addDebugInfo('Page loaded, setting up breakfast options...');
+            setupBreakfastOptions();
+        });
+
+        // Setup breakfast options (matching dashboard code)
+        function setupBreakfastOptions() {
+            addDebugInfo('Setting up breakfast options...');
+            
+            // Set up individual breakfast food buttons
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.breakfast-btn')) {
+                    const btn = e.target.closest('.breakfast-btn');
+                    const food = btn.dataset.food;
+                    const amount = btn.dataset.amount;
+                    const unit = btn.dataset.unit;
+                    
+                    addDebugInfo(`Breakfast button clicked: ${food}, ${amount} ${unit}`);
+                    addBreakfastFood(food, amount, unit);
+                }
+            });
+            
+            addDebugInfo('Breakfast options setup complete');
+        }
+
+        // Add breakfast food function (matching dashboard code)
+        function addBreakfastFood(foodKey, amount, unit) {
+            addDebugInfo(`addBreakfastFood called: ${foodKey}, ${amount}, ${unit}`);
+            
+            // Ensure we're on breakfast meal type
+            currentMealType = 'breakfast';
+            addDebugInfo(`Current meal type set to: ${currentMealType}`);
+            
+            // Try to find food in local database first
+            const food = foodDatabase[foodKey];
+            if (food) {
+                addDebugInfo(`Found in local database: ${food.name}`);
+                addBreakfastFoodFromLocal(food, amount, unit);
+                return;
+            }
+            
+            addDebugInfo(`Not found locally, searching API for: ${foodKey}`);
+            
+            // If not found locally, search in database API
+            fetch(`php/food_api.php?action=search&q=${encodeURIComponent(foodKey)}&limit=1`)
+                .then(response => {
+                    addDebugInfo(`API response status: ${response.status}`);
+                    return response.text();
+                })
+                .then(text => {
+                    addDebugInfo(`API raw response: ${text}`);
+                    try {
+                        const data = JSON.parse(text);
+                        if (data.error || !data.foods || data.foods.length === 0) {
+                            addDebugInfo(`API error or no foods found: ${JSON.stringify(data)}`);
+                            showNotification('Food not found in database', 'warning');
+                            return;
+                        }
+                        
+                        const apiFood = data.foods[0];
+                        addDebugInfo(`Found in API: ${apiFood.name}`);
+                        addBreakfastFoodFromAPI(apiFood, amount, unit);
+                    } catch (e) {
+                        addDebugInfo(`JSON parse error: ${e.message}`);
+                        showNotification('Error parsing API response', 'error');
+                    }
+                })
+                .catch(error => {
+                    addDebugInfo(`API fetch error: ${error.message}`);
+                    showNotification('Error fetching food data', 'error');
+                });
+        }
+
+        // Add breakfast food from local database
+        function addBreakfastFoodFromLocal(food, amount, unit) {
+            addDebugInfo(`addBreakfastFoodFromLocal called: ${food.name}`);
+            
+            // Convert amount to grams for calculation
+            const convertedAmount = convertPortionToGrams(parseFloat(amount), unit, food.name);
+            addDebugInfo(`Converted amount to grams: ${convertedAmount}`);
+            
+            // Calculate nutrition
+            const calories = (food.caloriesPer100g * convertedAmount) / 100;
+            const protein = (food.protein * convertedAmount) / 100;
+            const carbs = (food.carbs * convertedAmount) / 100;
+            const fats = (food.fats * convertedAmount) / 100;
+            
+            addDebugInfo(`Calculated nutrition: calories=${calories}, protein=${protein}, carbs=${carbs}, fats=${fats}`);
+            
+            // Create food data
+            const foodData = {
+                id: Date.now() + Math.random(),
+                name: food.name,
+                amount: `${amount} ${unit}`,
+                calories: Math.round(calories),
+                protein: Math.round(protein),
+                carbs: Math.round(carbs),
+                fats: Math.round(fats),
+                fiber: Math.round((food.fiber * convertedAmount) / 100),
+                sugar: Math.round((food.sugar * convertedAmount) / 100)
+            };
+            
+            addDebugInfo(`Created food data: ${JSON.stringify(foodData)}`);
+            
+            // Add to daily meals
+            dailyMeals[currentMealType].push(foodData);
+            addDebugInfo(`Added to dailyMeals[${currentMealType}]: ${dailyMeals[currentMealType].length} items`);
+            
+            // Update display
+            addDebugInfo('Updating display...');
+            updateCurrentMealDisplay();
+            updateDailyTotals();
+            
+            // Show success notification
+            showNotification(`${food.name} added to breakfast!`, 'success');
+        }
+
+        // Add breakfast food from API
+        function addBreakfastFoodFromAPI(apiFood, amount, unit) {
+            addDebugInfo(`addBreakfastFoodFromAPI called: ${apiFood.name}`);
+            
+            // Convert amount to grams for calculation
+            const convertedAmount = convertPortionToGrams(parseFloat(amount), unit, apiFood.name);
+            addDebugInfo(`Converted amount to grams: ${convertedAmount}`);
+            
+            // Calculate nutrition
+            const calories = (apiFood.calories_per_100g * convertedAmount) / 100;
+            const protein = (apiFood.protein * convertedAmount) / 100;
+            const carbs = (apiFood.carbs * convertedAmount) / 100;
+            const fats = (apiFood.fats * convertedAmount) / 100;
+            
+            addDebugInfo(`Calculated nutrition: calories=${calories}, protein=${protein}, carbs=${carbs}, fats=${fats}`);
+            
+            // Create food data
+            const foodData = {
+                id: Date.now() + Math.random(),
+                name: apiFood.name,
+                amount: `${amount} ${unit}`,
+                calories: Math.round(calories),
+                protein: Math.round(protein),
+                carbs: Math.round(carbs),
+                fats: Math.round(fats),
+                fiber: Math.round((apiFood.fiber * convertedAmount) / 100),
+                sugar: Math.round((apiFood.sugar * convertedAmount) / 100),
+                category: apiFood.category,
+                foodId: apiFood.id
+            };
+            
+            addDebugInfo(`Created food data: ${JSON.stringify(foodData)}`);
+            
+            // Add to daily meals
+            dailyMeals[currentMealType].push(foodData);
+            addDebugInfo(`Added to dailyMeals[${currentMealType}]: ${dailyMeals[currentMealType].length} items`);
+            
+            // Update display
+            addDebugInfo('Updating display...');
+            updateCurrentMealDisplay();
+            updateDailyTotals();
+            
+            // Show success notification
+            showNotification(`${apiFood.name} added to breakfast!`, 'success');
+        }
+
+        // Update current meal display
+        function updateCurrentMealDisplay() {
+            addDebugInfo('updateCurrentMealDisplay called');
+            const foodList = document.getElementById('foodList');
+            const currentMealFoods = dailyMeals[currentMealType];
+            
+            addDebugInfo(`Current meal foods: ${currentMealFoods.length} items`);
+            
+            if (currentMealFoods.length === 0) {
+                foodList.innerHTML = '<div class="text-center text-muted py-4"><i class="fas fa-utensils fa-2x mb-2"></i><br>No foods added to this meal yet. Click on breakfast food cards above!</div>';
+                addDebugInfo('No foods, showing empty message');
+                return;
+            }
+            
+            addDebugInfo(`Rendering ${currentMealFoods.length} food items`);
+            foodList.innerHTML = currentMealFoods.map(food => `
+                <div class="food-item">
+                    <div class="food-info">
+                        <h6 class="mb-1">${food.name}</h6>
+                        <small class="text-muted">${food.amount}</small>
+                        <div class="nutrition-details mt-2">
+                            <div class="nutrition-row">
+                                <span class="nutrition-label">Calories:</span>
+                                <span class="nutrition-value">${food.calories}</span>
+                            </div>
+                            <div class="nutrition-row">
+                                <span class="nutrition-label">Protein:</span>
+                                <span class="nutrition-value">${food.protein}g</span>
+                            </div>
+                            <div class="nutrition-row">
+                                <span class="nutrition-label">Carbs:</span>
+                                <span class="nutrition-value">${food.carbs}g</span>
+                            </div>
+                            <div class="nutrition-row">
+                                <span class="nutrition-label">Fats:</span>
+                                <span class="nutrition-value">${food.fats}g</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                        <span class="food-calories">${food.calories} cal</span>
+                        <button class="remove-food-btn" onclick="removeFoodFromMeal('${food.id}', '${currentMealType}')" title="Remove food">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+            
+            addDebugInfo('Food list HTML updated');
+        }
+
+        // Update daily totals
+        function updateDailyTotals() {
+            addDebugInfo('updateDailyTotals called');
+            let totalCalories = 0;
+            let totalProtein = 0;
+            let totalCarbs = 0;
+            let totalFats = 0;
+            
+            Object.values(dailyMeals).forEach(meal => {
+                meal.forEach(food => {
+                    totalCalories += food.calories;
+                    totalProtein += food.protein;
+                    totalCarbs += food.carbs;
+                    totalFats += food.fats;
+                });
+            });
+            
+            document.getElementById('totalCalories').textContent = totalCalories;
+            document.getElementById('totalProtein').textContent = totalProtein + 'g';
+            document.getElementById('totalCarbs').textContent = totalCarbs + 'g';
+            document.getElementById('totalFats').textContent = totalFats + 'g';
+            
+            addDebugInfo(`Updated totals: ${totalCalories} cal, ${totalProtein}g protein, ${totalCarbs}g carbs, ${totalFats}g fats`);
+        }
+
+        // Remove food from meal
+        function removeFoodFromMeal(foodId, mealType) {
+            addDebugInfo(`removeFoodFromMeal called: ${foodId}, ${mealType}`);
+            dailyMeals[mealType] = dailyMeals[mealType].filter(food => food.id !== foodId);
+            updateCurrentMealDisplay();
+            updateDailyTotals();
+        }
+
+        // Show notification
+        function showNotification(message, type = 'info') {
+            addDebugInfo(`Notification: ${type} - ${message}`);
+            const alertClass = type === 'error' ? 'alert-danger' : type === 'success' ? 'alert-success' : type === 'warning' ? 'alert-warning' : 'alert-info';
+            const notification = document.createElement('div');
+            notification.className = `alert ${alertClass} alert-dismissible fade show position-fixed`;
+            notification.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            notification.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 3000);
+        }
+
+        // Convert portion to grams
+        function convertPortionToGrams(amount, unit, foodName) {
+            const conversions = {
+                'g': 1,
+                'ml': 1,
+                'large': 50,
+                'medium': 30,
+                'slice': 25,
+                'tbsp': 15,
+                'tsp': 5
+            };
+            
+            return amount * (conversions[unit] || 1);
+        }
+
+        // Test API connection
+        function testAPI() {
+            addDebugInfo('Testing API connection...');
+            fetch('php/food_api.php?action=get_all&limit=3')
+                .then(response => {
+                    addDebugInfo(`API test response status: ${response.status}`);
+                    return response.text();
+                })
+                .then(text => {
+                    addDebugInfo(`API test response: ${text}`);
+                    try {
+                        const data = JSON.parse(text);
+                        if (data.foods) {
+                            addDebugInfo(`API test success: Found ${data.foods.length} foods`);
+                        } else {
+                            addDebugInfo(`API test error: ${data.error}`);
+                        }
+                    } catch (e) {
+                        addDebugInfo(`API test JSON parse error: ${e.message}`);
+                    }
+                })
+                .catch(error => {
+                    addDebugInfo(`API test fetch error: ${error.message}`);
+                });
+        }
+
+        // Test local database
+        function testLocalDatabase() {
+            addDebugInfo('Testing local database...');
+            addDebugInfo(`Local database has ${Object.keys(foodDatabase).length} foods: ${Object.keys(foodDatabase).join(', ')}`);
+        }
+    </script>
+
+    <style>
+        .breakfast-item {
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .breakfast-item i {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .breakfast-item span {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .breakfast-item small {
+            display: block;
+            color: #666;
+        }
+        
+        .food-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+        }
+        
+        .food-info h6 {
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .nutrition-details {
+            font-size: 0.9em;
+        }
+        
+        .nutrition-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2px;
+        }
+        
+        .nutrition-label {
+            color: #666;
+        }
+        
+        .nutrition-value {
+            font-weight: bold;
+        }
+        
+        .food-calories {
+            font-weight: bold;
+            color: #007bff;
+            font-size: 1.1em;
+        }
+        
+        .remove-food-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .remove-food-btn:hover {
+            background: #c82333;
+        }
+        
+        #debugInfo {
+            font-family: monospace;
+            font-size: 0.9em;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</body>
+</html>

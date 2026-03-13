@@ -1,0 +1,3816 @@
+#breakfastOptions { display: block !important; }
+#breakfastOptions .collapse { display: block !important; }
+#breakfastOptions .collapse.show { display: block !important; }
+/* Disable blink/hover animations within Cardio Workouts */
+#cardioWorkouts .workout-card,
+#cardioWorkouts .workout-card:hover,
+#cardioWorkouts .workout-card:focus,
+#cardioWorkouts .workout-card:active {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+#cardioWorkouts .btn,
+#cardioWorkouts .btn:hover,
+#cardioWorkouts .btn:focus,
+#cardioWorkouts .btn:active {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-flex !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+#cardioWorkouts .btn::before,
+#cardioWorkouts .btn:hover::before,
+#cardioWorkouts .btn:focus::before,
+#cardioWorkouts .btn:active::before {
+    display: none !important;
+}
+
+/* Ensure Start buttons are visible across all workout sections */
+#strengthWorkouts .btn,
+#hiitWorkouts .btn,
+#flexibilityWorkouts .btn {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-flex !important;
+    position: relative !important;
+    z-index: 1 !important;
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+}
+.modal-header {
+    overflow: visible !important;
+}
+
+/* Ensure close button in popups/modals is clearly visible */
+.modal .btn-close,
+#authModal .btn-close {
+    opacity: 1 !important;
+    display: block !important;
+    animation: none !important;
+    filter: none !important;
+    position: absolute !important;
+    right: 1rem !important;
+    top: 1rem !important;
+    z-index: 1100 !important;
+}
+
+/* Stabilize buttons in Workout Plan/Preview modals (no blink/glitch) */
+#previewModal .btn,
+#previewModal .btn:hover,
+#previewModal .btn:focus,
+#previewModal .btn:active,
+#cardioPlanModal .btn,
+#cardioPlanModal .btn:hover,
+#cardioPlanModal .btn:focus,
+#cardioPlanModal .btn:active,
+#workoutPlanModal .btn,
+#workoutPlanModal .btn:hover,
+#workoutPlanModal .btn:focus,
+#workoutPlanModal .btn:active {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-flex !important;
+    z-index: 1 !important;
+}
+
+#previewModal .btn::before,
+#cardioPlanModal .btn::before,
+#workoutPlanModal .btn::before,
+#previewModal .btn:hover::before,
+#cardioPlanModal .btn:hover::before,
+#workoutPlanModal .btn:hover::before {
+    display: none !important;
+}
+/* Stabilize Complete Body Transformation control buttons */
+.featured-workout #cbtStartBtn,
+.featured-workout #cbtPauseBtn,
+.featured-workout #cbtResumeBtn,
+.featured-workout #cbtEndBtn,
+.featured-workout #cbtStartBtn:hover,
+.featured-workout #cbtPauseBtn:hover,
+.featured-workout #cbtResumeBtn:hover,
+.featured-workout #cbtEndBtn:hover,
+.featured-workout #cbtStartBtn:focus,
+.featured-workout #cbtPauseBtn:focus,
+.featured-workout #cbtResumeBtn:focus,
+.featured-workout #cbtEndBtn:focus,
+.featured-workout #cbtStartBtn:active,
+.featured-workout #cbtPauseBtn:active,
+.featured-workout #cbtResumeBtn:active,
+.featured-workout #cbtEndBtn:active {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    position: static !important;
+}
+
+/* Remove hover/blink/glitch and force visibility for ALL workout buttons */
+.workout-card .btn,
+.workout-card .btn:hover,
+.workout-card .btn:focus,
+.workout-card .btn:active,
+.active-workout .btn,
+.active-workout .btn:hover,
+.active-workout .btn:focus,
+.active-workout .btn:active,
+.featured-workout .btn,
+.featured-workout .btn:hover,
+.featured-workout .btn:focus,
+.featured-workout .btn:active {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-flex !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.workout-card .btn::before,
+.workout-card .btn:hover::before,
+.workout-card .btn:focus::before,
+.workout-card .btn:active::before,
+.active-workout .btn::before,
+.active-workout .btn:hover::before,
+.active-workout .btn:focus::before,
+.active-workout .btn:active::before,
+.featured-workout .btn::before,
+.featured-workout .btn:hover::before,
+.featured-workout .btn:focus::before,
+.featured-workout .btn:active::before {
+    display: none !important;
+}
+
+/* Ensure key workout sections are always visible (no hidden/opacity zero) */
+#cardioWorkouts *,
+#strengthWorkouts *,
+#hiitWorkouts *,
+#flexibilityWorkouts *,
+.active-workout * {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.featured-workout #cbtStartBtn::before,
+.featured-workout #cbtPauseBtn::before,
+.featured-workout #cbtResumeBtn::before,
+.featured-workout #cbtEndBtn::before,
+.featured-workout #cbtStartBtn:hover::before,
+.featured-workout #cbtPauseBtn:hover::before,
+.featured-workout #cbtResumeBtn:hover::before,
+.featured-workout #cbtEndBtn:hover::before {
+    display: none !important;
+}
+
+/* Make all buttons in the workout session stable (no hover/glitch) */
+.featured-workout .btn,
+.featured-workout .btn:hover,
+.featured-workout .btn:focus,
+.featured-workout .btn:active {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+}
+
+.featured-workout .btn::before,
+.featured-workout .btn:hover::before,
+.featured-workout .btn:focus::before,
+.featured-workout .btn:active::before {
+    display: none !important;
+}
+
+/* Ensure timer and calories text are clearly visible in featured workout */
+.featured-workout #cbtTimer,
+.featured-workout #cbtElapsed,
+.featured-workout #cbtTotal,
+.featured-workout #cbtCalories,
+.featured-workout #cbtCaloriesTarget,
+.featured-workout #cbtProgressText,
+.featured-workout .small.text-muted {
+    color: #000000 !important;
+}
+
+/* Ensure Details button is visible and readable */
+.featured-workout #cbtToggleDetails {
+    background: #ffffff !important;
+    color: #ffffff !important;
+    border: 1px solid var(--gray-300) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.25rem !important;
+    opacity: 1 !important;
+}
+
+.featured-workout #cbtToggleDetails:hover,
+.featured-workout #cbtToggleDetails:focus {
+    background: #ffffff !important;
+    color: #111111 !important;
+    border-color: var(--gray-400) !important;
+}
+
+/* Final overrides to guarantee visibility (placed late to win cascade) */
+.featured-workout .btn {
+    opacity: 1 !important;
+    display: inline-flex !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.featured-workout #cbtToggleDetails {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+/* Force-hide fixed login button (override later rules) */
+.fixed-login-btn,
+.fixed-login-btn:hover,
+.fixed-login-btn:focus,
+.fixed-login-btn:active {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+/* Hide fixed login button (bottom-right) */
+.fixed-login-btn {
+    display: none !important;
+}
+/* Stabilize Login button in Welcome modal to prevent disappearing on hover */
+#authModal .btn,
+#authModal .btn:hover,
+#authModal .btn:focus,
+#authModal .btn:active {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+}
+
+#authModal .btn::before,
+#authModal .btn:hover::before,
+#authModal .btn:focus::before,
+#authModal .btn:active::before {
+    display: none !important;
+}
+/* HealthMate - Modern UI/UX Design System */
+
+:root {
+    /* Modern Color Palette */
+    --primary-color: #6366f1;
+    --primary-dark: #4f46e5;
+    --primary-light: #a5b4fc;
+    --secondary-color: #10b981;
+    --secondary-dark: #059669;
+    --accent-color: #f59e0b;
+    --accent-dark: #d97706;
+    
+    /* Neutral Colors */
+    --dark-color: #1f2937;
+    --dark-light: #374151;
+    --light-color: #f9fafb;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    
+    /* Status Colors */
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+    --info-color: #3b82f6;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    
+    /* Border Radius */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease-in-out;
+    --transition-normal: 0.3s ease-in-out;
+    --transition-slow: 0.5s ease-in-out;
+    
+    /* Enhanced Text Brightness */
+    --text-primary: #0f0f0f;
+    --text-secondary: #1a1a1a;
+    --text-muted: #2d2d2d;
+    --text-light: #404040;
+    --text-white: #ffffff;
+    --text-bright: #000000;
+    --text-accent: #4f46e5;
+    --text-success: #059669;
+    --text-warning: #d97706;
+    --text-danger: #dc2626;
+    --text-info: #2563eb;
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--gray-50);
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-bright);
+}
+
+.display-1, .display-2, .display-3, .display-4 {
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--text-bright);
+}
+
+/* Enhanced Text Brightness Styles */
+.text-primary { color: var(--text-primary) !important; }
+.text-secondary { color: var(--text-secondary) !important; }
+.text-muted { color: var(--text-muted) !important; }
+.text-light { color: var(--text-light) !important; }
+.text-white { color: var(--text-white) !important; }
+.text-bright { color: var(--text-bright) !important; }
+.text-accent { color: var(--text-accent) !important; }
+.text-success { color: var(--text-success) !important; }
+.text-warning { color: var(--text-warning) !important; }
+.text-danger { color: var(--text-danger) !important; }
+.text-info { color: var(--text-info) !important; }
+
+/* Enhanced Card Text */
+.card-title, .card-header h5, .card-header h6 {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.card-text, .card-body p {
+    color: var(--text-secondary) !important;
+}
+
+.card-subtitle {
+    color: var(--text-muted) !important;
+}
+
+/* Enhanced Button Text */
+.btn {
+    font-weight: 600;
+}
+
+.btn-primary {
+    color: var(--text-white) !important;
+}
+
+.btn-secondary {
+    color: var(--text-white) !important;
+}
+
+.btn-outline-primary {
+    color: var(--text-accent) !important;
+    border-color: var(--text-accent);
+}
+
+/* hover removed */
+
+.btn-outline-secondary {
+    color: var(--text-secondary) !important;
+}
+
+.btn-outline-success {
+    color: var(--text-success) !important;
+}
+
+.btn-outline-danger {
+    color: var(--text-danger) !important;
+}
+
+.btn-outline-warning {
+    color: var(--text-warning) !important;
+}
+
+.btn-outline-info {
+    color: var(--text-info) !important;
+}
+
+/* Enhanced Form Text */
+.form-label {
+    color: var(--text-secondary) !important;
+    font-weight: 600;
+}
+
+.form-control {
+    color: var(--text-primary) !important;
+}
+
+.form-control::placeholder {
+    color: var(--text-light) !important;
+}
+
+.form-text {
+    color: var(--text-muted) !important;
+}
+
+/* Enhanced Navigation Text */
+.navbar-brand {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.nav-link {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+}
+
+/* hover removed */
+
+.nav-link.active {
+    color: var(--text-accent) !important;
+    font-weight: 600;
+}
+
+/* Enhanced List Text */
+.list-group-item {
+    color: var(--text-secondary) !important;
+}
+
+.list-group-item.active {
+    color: var(--text-white) !important;
+}
+
+/* Enhanced Table Text */
+.table th {
+    color: var(--text-bright) !important;
+    font-weight: 700;
+}
+
+.table td {
+    color: var(--text-secondary) !important;
+}
+
+/* Enhanced Alert Text */
+.alert {
+    font-weight: 500;
+}
+
+.alert-primary {
+    color: var(--text-accent) !important;
+}
+
+.alert-success {
+    color: var(--text-success) !important;
+}
+
+.alert-warning {
+    color: var(--text-warning) !important;
+}
+
+.alert-danger {
+    color: var(--text-danger) !important;
+}
+
+.alert-info {
+    color: var(--text-info) !important;
+}
+
+/* Modern Navigation */
+.navbar {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
+}
+
+.navbar-brand {
+    font-weight: 800;
+    font-size: 1.75rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--gray-700) !important;
+    transition: var(--transition-fast);
+    position: relative;
+    padding: 0.75rem 1rem !important;
+    border-radius: var(--radius-md);
+}
+
+/* hover removed */
+
+.nav-link.active {
+    color: var(--primary-color) !important;
+    background-color: rgba(99, 102, 241, 0.1);
+}
+
+/* Hero Section */
+.hero-section {
+    /* Visible background image without overlay */
+    background-color: #f8fafc !important; /* light fallback */
+    background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    color: #111111 !important;
+    padding: 120px 0 100px;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+/* Ensure bright, readable text over hero image */
+.hero-section h1,
+.hero-section h2,
+.hero-section h3,
+.hero-section h4,
+.hero-section h5,
+.hero-section h6,
+.hero-section p,
+.hero-section .hero-title,
+.hero-section .hero-subtitle,
+.hero-section .text-muted {
+    color: #ffffff !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+/* Brighten brain icon in hero */
+.hero-section .fa-brain {
+	color: #ffffff !important;
+	text-shadow:
+		0 0 3px rgba(255,255,255,0.95),
+		0 0 10px rgba(255,255,255,0.9),
+		0 0 22px rgba(99,102,241,0.65),
+		0 0 36px rgba(99,102,241,0.5);
+	filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.45));
+	position: relative;
+	z-index: 2;
+}
+
+/* Make brain area more attractive: glowing ring + soft float + pulse */
+.hero-section .glass {
+	position: relative !important;
+	background: rgba(255, 255, 255, 0.15) !important;
+	border: 2px solid rgba(255, 255, 255, 0.7) !important;
+	backdrop-filter: blur(16px) !important;
+	box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28), inset 0 0 36px rgba(255, 255, 255, 0.4) !important;
+	animation: floatSoft 6s ease-in-out infinite !important;
+	z-index: 1;
+}
+
+.hero-section .glass::before {
+	content: '';
+	position: absolute;
+	inset: -10px;
+	border-radius: 50%;
+	background: conic-gradient(from 0deg, #6366f1, #10b981, #f59e0b, #6366f1);
+	-webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 10px), #000 calc(100% - 9px));
+	mask: radial-gradient(farthest-side, transparent calc(100% - 10px), #000 calc(100% - 9px));
+	opacity: 0.9;
+	filter: drop-shadow(0 8px 22px rgba(99, 102, 241, 0.4));
+	animation: ringRotate 10s linear infinite !important;
+}
+
+/* Radial highlight behind the glass ring */
+.hero-section .glass::after {
+	content: '';
+	position: absolute;
+	inset: -2px;
+	border-radius: 50%;
+	background: radial-gradient(circle at 50% 45%,
+		rgba(255,255,255,0.65) 0%,
+		rgba(255,255,255,0.4) 30%,
+		rgba(99,102,241,0.2) 55%,
+		transparent 70%);
+	filter: blur(1px);
+	opacity: 0.95;
+	z-index: 0;
+}
+
+.hero-section .fa-brain {
+	animation: brainPulse 3s ease-in-out infinite !important;
+}
+
+@keyframes ringRotate {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+@keyframes floatSoft {
+	0%, 100% { transform: translateY(0); }
+	50% { transform: translateY(-8px); }
+}
+
+@keyframes brainPulse {
+	0%, 100% { text-shadow: 0 0 8px rgba(255,255,255,0.7), 0 0 16px rgba(99,102,241,0.35); }
+	50% { text-shadow: 0 0 14px rgba(255,255,255,0.95), 0 0 28px rgba(99,102,241,0.55); }
+}
+
+.hero-section::before {
+    display: none !important;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* Modern Buttons */
+.btn {
+    font-weight: 600;
+    border-radius: var(--radius-lg);
+    padding: 0.75rem 1.5rem;
+    transition: var(--transition-normal);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    display: none;
+}
+
+/* hover removed */
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+/* hover removed */
+
+.btn-secondary {
+    background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+/* hover removed */
+
+.btn-outline-light {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+/* hover removed */
+
+/* Modern Cards */
+.card {
+    border: none;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+    overflow: hidden;
+    background: white;
+    position: relative;
+}
+
+/* Lighter Progress Summary Card */
+.progress-summary-card {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(8px) !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06) !important;
+}
+.progress-summary-card .card-header {
+    background: transparent !important;
+    color: #111827 !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+.progress-summary-card .progress-item .progress {
+    background-color: rgba(0, 0, 0, 0.06) !important;
+}
+.progress-summary-card .points-display .points-text {
+    color: #111827 !important;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    opacity: 0;
+    transition: var(--transition-normal);
+}
+
+/* hover removed */
+
+/* hover removed */
+
+.card-body {
+    padding: 2rem;
+}
+
+.card-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    padding: 1.5rem 2rem;
+    font-weight: 600;
+}
+
+/* Feature Cards */
+.feature-card {
+    text-align: center;
+    padding: 2rem;
+    border-radius: var(--radius-xl);
+    background: white;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transform: scaleX(0);
+    transition: var(--transition-normal);
+}
+
+/* hover removed */
+
+/* hover removed */
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+    font-size: 2rem;
+    box-shadow: var(--shadow-lg);
+}
+
+/* Dashboard Stats */
+.dashboard-stats {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    border-radius: var(--radius-2xl);
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.dashboard-stats::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+/* Enhanced Dashboard Text Brightness */
+.dashboard-stats h1,
+.dashboard-stats h2,
+.dashboard-stats h3,
+.dashboard-stats h4,
+.dashboard-stats h5,
+.dashboard-stats h6 {
+    color: #ffffff !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+}
+
+.dashboard-stats p {
+    color: rgba(255, 255, 255, 0.95) !important;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    font-weight: 500;
+}
+
+.dashboard-stats .opacity-75 {
+    opacity: 0.95 !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: var(--transition-normal);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* hover removed */
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    letter-spacing: -0.02em;
+}
+
+.stat-label {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Progress Charts */
+.chart-container {
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 2rem;
+    border: 1px solid var(--gray-200);
+}
+
+.chart-title {
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+}
+
+/* Enhanced Dashboard General Text */
+.dashboard-stats .text-white {
+    color: #ffffff !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-stats .text-white-50 {
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-stats .small {
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-stats .fw-bold {
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Quick Actions - Black Text */
+.quick-action-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    border: 1px solid var(--gray-200);
+    transition: var(--transition-normal);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--shadow-sm);
+    color: #fff;
+}
+
+/* hover removed */
+
+.quick-action-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.25rem;
+    box-shadow: var(--shadow-md);
+}
+
+.quick-action-content h6 {
+    color: #ffffff !important;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.quick-action-content p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 0.875rem;
+    margin-bottom: 0;
+}
+
+/* Recent Activity - White Text */
+.activity-item h6 {
+    color: #ffffff !important;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.activity-item p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
+
+.activity-item small {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 0.75rem;
+}
+
+/* Workout Cards */
+.workout-card {
+    background: white;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--gray-200);
+}
+
+/* hover removed */
+
+.workout-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 1.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.workout-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M20 20c0 11.046-8.954 20-20 20s-20-8.954-20-20 8.954-20 20-20 20 8.954 20 20z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.workout-body {
+    padding: 2rem;
+}
+
+.workout-badge {
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-lg);
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: inline-block;
+    margin: 0.25rem;
+}
+
+/* Leaderboard */
+.leaderboard-item {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
+    border: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* hover removed */
+
+.rank-badge {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    color: white;
+    font-size: 1.25rem;
+    box-shadow: var(--shadow-md);
+}
+
+.rank-1 { 
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+.rank-2 { 
+    background: linear-gradient(135deg, #c0c0c0, #e5e5e5);
+    box-shadow: 0 0 20px rgba(192, 192, 192, 0.5);
+}
+.rank-3 { 
+    background: linear-gradient(135deg, #cd7f32, #daa520);
+    box-shadow: 0 0 20px rgba(205, 127, 50, 0.5);
+}
+.rank-other { 
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+/* Modern Forms */
+.form-control {
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--gray-200);
+    padding: 0.875rem 1rem;
+    transition: var(--transition-normal);
+    font-size: 1rem;
+    background-color: white;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    outline: none;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.form-floating .form-control {
+    padding: 1.625rem 1rem 0.625rem;
+}
+
+.form-floating .form-label {
+    padding: 1rem 1rem 0.625rem;
+}
+
+/* Modern Alerts */
+.alert {
+    border-radius: var(--radius-lg);
+    border: none;
+    padding: 1rem 1.5rem;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.alert::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: currentColor;
+}
+
+.alert-success {
+    background: linear-gradient(135deg, var(--success-color), #34d399);
+    color: white;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, var(--danger-color), #f87171);
+    color: white;
+}
+
+.alert-warning {
+    background: linear-gradient(135deg, var(--warning-color), #fbbf24);
+    color: white;
+}
+
+.alert-info {
+    background: linear-gradient(135deg, var(--info-color), #60a5fa);
+    color: white;
+}
+
+/* Achievement Badges */
+.achievement-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-xl);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin: 0.25rem;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+}
+
+/* hover removed */
+
+.achievement-icon {
+    font-size: 1.25rem;
+}
+
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-100);
+    border-radius: var(--radius-md);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: var(--radius-md);
+}
+
+/* Prevent text selection highlight from flashing white */
+::selection {
+    background: transparent !important;
+    color: inherit !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
+}
+
+/* Modal Improvements */
+.modal-content {
+    border-radius: var(--radius-xl);
+    border: none;
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+}
+
+/* Cardio Plan modal: force black text and lighter background */
+#cardioPlanModal .modal-content,
+#cardioPlanModal .card,
+#cardioPlanModal .list-group-item,
+#cardioPlanModal .modal-body,
+#cardioPlanModal .preview-stats {
+    color: #000000 !important;
+    background: #ffffff !important;
+    background-image: none !important;
+}
+
+/* Strength Plan modal: force black text and lighter background */
+#strengthPlanModal .modal-content,
+#strengthPlanModal .card,
+#strengthPlanModal .list-group-item,
+#strengthPlanModal .modal-body,
+#strengthPlanModal .preview-stats {
+    color: #000000 !important;
+    background: #ffffff !important;
+    background-image: none !important;
+}
+
+/* HIIT Plan modal: remove background image while preserving text */
+#hiitPlanModal .modal-body {
+    background: #ffffff !important;
+    background-image: none !important;
+}
+
+/* Remove background images from all workout modals and set white background */
+#workoutPlanModal .modal-content,
+#workoutPlanModal .modal-body,
+#workoutPlanModal .card,
+#exerciseListModal .modal-content,
+#exerciseListModal .modal-body,
+#exerciseListModal .card,
+#previewModal .modal-content,
+#previewModal .modal-body,
+#previewModal .card,
+#strengthPlanModal .modal-content,
+#strengthPlanModal .modal-body,
+#strengthPlanModal .card,
+#flexPlanModal .modal-content,
+#flexPlanModal .modal-body,
+#flexPlanModal .card,
+#timerPopupModal .modal-content,
+#timerPopupModal .modal-body,
+#timerPopupModal .card {
+    background: #ffffff !important;
+    background-image: none !important;
+}
+
+/* HIIT Plan modal: ensure white containers and readable text */
+#hiitPlanModal .modal-content,
+#hiitPlanModal .modal-body,
+#hiitPlanModal .card,
+#hiitPlanModal .list-group-item {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* Strength Plan modal: white background with black text */
+#strengthPlanModal .modal-content,
+#strengthPlanModal .modal-body,
+#strengthPlanModal .card,
+#strengthPlanModal .list-group-item {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+#strengthPlanModal p,
+#strengthPlanModal li,
+#strengthPlanModal span,
+#strengthPlanModal small,
+#strengthPlanModal .stat-label,
+#strengthPlanModal .stat-number {
+    color: #000000 !important;
+}
+
+#strengthPlanModal .card-header {
+    background: #f8f9fa !important;
+    color: #000000 !important;
+}
+
+#cardioPlanModal h5,
+#cardioPlanModal h6,
+#cardioPlanModal p,
+#cardioPlanModal li,
+#cardioPlanModal span,
+#cardioPlanModal small,
+#cardioPlanModal .stat-label,
+#cardioPlanModal .stat-number {
+    color: #000000 !important;
+}
+#hiitPlanModal p,
+#hiitPlanModal li,
+#hiitPlanModal span,
+#hiitPlanModal small,
+#hiitPlanModal .stat-label,
+#hiitPlanModal .stat-number {
+    color: #000000 !important;
+}
+
+/* removed global hover neutralizer that caused page-wide hover effects */
+
+/* removed wildcard hover/focus/active rule */
+
+/* (Reverted) Removed constant color overrides and global black background per request */
+
+#strengthPlanModal h5,
+#strengthPlanModal h6,
+#strengthPlanModal p,
+#strengthPlanModal li,
+#strengthPlanModal span,
+#strengthPlanModal small,
+#strengthPlanModal .stat-label,
+#strengthPlanModal .stat-number {
+    color: #000000 !important;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    padding: 1.5rem 2rem;
+}
+
+.modal-body {
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%), 
+                url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.modal-footer {
+    border-top: 1px solid var(--gray-200);
+    padding: 1.5rem 2rem;
+}
+
+/* Enhanced Login Page Font Sizes */
+.modal-title {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+}
+
+/* Strength Training section: force white card backgrounds */
+#strengthWorkouts .workout-card,
+#strengthWorkouts .workout-card-header,
+#strengthWorkouts .workout-card-body,
+#strengthWorkouts .workout-card-footer,
+#strengthWorkouts .card {
+    background: #ffffff !important;
+}
+
+.nav-tabs .nav-link {
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    padding: 0.75rem 1.25rem !important;
+    color: black !important;
+}
+
+.nav-tabs .nav-link:hover {
+    color: #333333 !important;
+    background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.nav-tabs .nav-link.active {
+    color: black !important;
+    background-color: rgba(0, 0, 0, 0.1) !important;
+    border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.form-label {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+}
+
+.form-control {
+    font-size: 1.1rem !important;
+    padding: 0.875rem 1rem !important;
+}
+
+.btn {
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    padding: 0.75rem 1.5rem !important;
+}
+
+/* Navigation Link Colors - Black Text */
+.navbar-nav .nav-link {
+    color: black !important;
+    font-weight: 500 !important;
+}
+
+/* hover removed */
+
+.navbar-nav .nav-link.active {
+    color: black !important;
+    font-weight: 600 !important;
+    background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Features Section Text - White Color */
+#features .lead.text-muted {
+    color: white !important;
+}
+
+/* Contact Section Text - White Color */
+#contact .lead.text-muted {
+    color: white !important;
+}
+
+/* Enhanced Contact Form Card */
+#contact .card {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    border-radius: 20px !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+#contact .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+    border-radius: 20px 20px 0 0;
+}
+
+#contact .card:hover {
+    transform: none !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+#contact .card-body {
+    padding: 3rem !important;
+    position: relative;
+    z-index: 1;
+}
+
+/* Enhanced Contact Form Labels */
+#contact .form-label {
+    color: black !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    margin-bottom: 0.75rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Enhanced Contact Form Inputs */
+#contact .form-control {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 2px solid rgba(99, 102, 241, 0.2) !important;
+    border-radius: 12px !important;
+    padding: 1rem 1.25rem !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    color: black !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+}
+
+#contact .form-control:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1), 
+                0 4px 20px rgba(99, 102, 241, 0.15) !important;
+    background: white !important;
+    color: black !important;
+    transform: translateY(-2px) !important;
+}
+
+#contact .form-control::placeholder {
+    color: var(--gray-500) !important;
+    font-weight: 400 !important;
+}
+
+/* Enhanced Contact Form Button */
+#contact .btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 1rem 2.5rem !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3) !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+#contact .btn-primary::before {
+    display: none;
+}
+
+#contact .btn-primary:hover {
+    transform: none !important;
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3) !important;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+}
+
+#contact .btn-primary:hover::before {
+    left: 0;
+}
+
+/* Enhanced Welcome to HealthMate Modal Animations */
+.modal.fade .modal-dialog {
+    transform: scale(0.8) translateY(-50px);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal.show .modal-dialog {
+    transform: scale(1) translateY(0);
+}
+
+.modal-content {
+    animation: modalSlideIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes modalSlideIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(-30px);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.02) translateY(-5px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Animated Modal Header */
+.modal-header {
+    animation: headerGlow 2s ease-in-out infinite alternate;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes headerGlow {
+    0% {
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Animated Modal Title */
+.modal-title {
+    animation: titlePulse 2s ease-in-out infinite;
+    position: relative;
+}
+
+@keyframes titlePulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Animated Tab Navigation */
+.nav-tabs {
+    animation: tabsSlideIn 0.8s ease-out 0.3s both;
+}
+
+@keyframes tabsSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav-tabs .nav-link {
+    animation: tabBounce 0.6s ease-out forwards;
+    animation-delay: calc(var(--tab-index, 0) * 0.1s);
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+@keyframes tabBounce {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateY(-5px) scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Animated Form Elements */
+.form-label {
+    animation: labelSlideIn 0.6s ease-out forwards;
+    animation-delay: calc(var(--label-index, 0) * 0.1s);
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+@keyframes labelSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.form-control {
+    animation: inputSlideIn 0.6s ease-out forwards;
+    animation-delay: calc(var(--input-index, 0) * 0.1s);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes inputSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Enhanced Button Animations */
+.btn {
+    animation: buttonSlideIn 0.8s ease-out forwards;
+    animation-delay: 0.6s;
+    opacity: 0;
+    transform: translateY(30px);
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes buttonSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.8);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateY(-5px) scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+/* hover removed */
+
+/* hover removed */
+
+@keyframes buttonHover {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        transform: translateY(-3px) scale(1.05);
+    }
+}
+
+/* Floating Animation for Modal */
+.modal-content {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Pulse Animation for Close Button */
+.btn-close {
+    animation: closeButtonPulse 2s ease-in-out infinite;
+}
+
+@keyframes closeButtonPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+/* Enhanced Registration Form Styling */
+#register .form-label {
+    color: black !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    margin-bottom: 0.75rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+#register .form-control {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 2px solid rgba(99, 102, 241, 0.2) !important;
+    border-radius: 12px !important;
+    padding: 1rem 1.25rem !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    color: black !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+}
+
+#register .form-control:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1), 
+                0 4px 20px rgba(99, 102, 241, 0.15) !important;
+    background: white !important;
+    color: black !important;
+    transform: translateY(-2px) !important;
+}
+
+#register .form-control::placeholder {
+    color: var(--gray-500) !important;
+    font-weight: 400 !important;
+}
+
+#register .btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 1rem 2.5rem !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3) !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+#register .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+/* hover removed */
+
+/* hover removed */
+
+/* Registration Form Row Styling */
+#register .row .col-md-6,
+#register .row .col-12 {
+    /* No animations - static display */
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Registration Select Styling */
+#register select.form-control {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 2px solid rgba(99, 102, 241, 0.2) !important;
+    border-radius: 12px !important;
+    padding: 1rem 1.25rem !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    color: black !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+}
+
+#register select.form-control:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1), 
+                0 4px 20px rgba(99, 102, 241, 0.15) !important;
+    background: white !important;
+    color: black !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Ensure Get Started Buttons Are Always Visible */
+.navbar-nav .nav-link.btn,
+.hero-section .btn {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 1000 !important;
+}
+
+/* Enhanced Get Started Button Styling */
+.navbar-nav .nav-link.btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 0.5rem 1rem !important;
+    font-weight: 600 !important;
+    color: white !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3) !important;
+}
+
+/* hover removed */
+
+/* New minimal hero primary button */
+.hero-section .hero-primary-btn {
+	background: #ffffff !important;
+	border: 2px solid #ffffff !important;
+	border-radius: 8px !important;
+	padding: 1rem 2rem !important;
+	font-weight: 700 !important;
+	color: var(--primary-color) !important;
+	text-decoration: none !important;
+	transition: none !important;
+	box-shadow: none !important;
+	backdrop-filter: none !important;
+	animation: none !important;
+	opacity: 1 !important;
+	transform: none !important;
+	cursor: default !important;
+}
+
+/* hover removed */
+
+/* Remove hover effects from new hero button */
+.hero-section .hero-primary-btn:hover,
+.hero-section .hero-primary-btn:focus,
+.hero-section .hero-primary-btn:active {
+    background: #ffffff !important;
+    color: var(--primary-color) !important;
+    border-color: #ffffff !important;
+    box-shadow: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+}
+
+/* Hard-neutralize ALL hover/focus/active effects on the new hero button and its children */
+.hero-section .hero-primary-btn,
+.hero-section .hero-primary-btn *,
+.hero-section .hero-primary-btn:hover,
+.hero-section .hero-primary-btn:focus,
+.hero-section .hero-primary-btn:active,
+.hero-section .hero-primary-btn *:hover,
+.hero-section .hero-primary-btn *:focus,
+.hero-section .hero-primary-btn *:active {
+	background: #ffffff !important;
+	color: var(--primary-color) !important;
+	border-color: #ffffff !important;
+	box-shadow: none !important;
+	transform: none !important;
+	opacity: 1 !important;
+	filter: none !important;
+	text-decoration: none !important;
+	outline: none !important;
+	transition: none !important;
+	animation: none !important;
+}
+
+/* Prevent shimmer/overlay on hero button */
+.hero-section .btn::before,
+.hero-section .btn:focus::before,
+.hero-section .btn:active::before {
+    display: none !important;
+}
+
+/* Fixed Login Button */
+.fixed-login-btn {
+    position: fixed !important;
+    top: auto !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    z-index: 9999 !important;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+    border: none !important;
+    border-radius: 50px !important;
+    padding: 0.75rem 1.5rem !important;
+    font-weight: 700 !important;
+    color: white !important;
+    text-decoration: none !important;
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4) !important;
+    transition: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* hover removed */
+
+.fixed-login-btn:focus {
+    outline: none !important;
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4) !important;
+    animation: none !important;
+}
+
+/* Remove shimmer/intro animations for fixed login button */
+.fixed-login-btn::before,
+.fixed-login-btn:hover::before,
+.fixed-login-btn:focus::before,
+.fixed-login-btn:active::before {
+    display: none !important;
+}
+
+.fixed-login-btn,
+.fixed-login-btn:hover,
+.fixed-login-btn:focus,
+.fixed-login-btn:active {
+    animation: none !important; /* overrides global .btn hover animations */
+}
+
+.fixed-login-btn i {
+    font-size: 1.1rem !important;
+}
+
+/* Responsive adjustments for fixed login button */
+@media (max-width: 768px) {
+    .fixed-login-btn {
+        top: auto !important;
+        bottom: 15px !important;
+        right: 15px !important;
+        padding: 0.6rem 1.2rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .fixed-login-btn i {
+        font-size: 1rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .fixed-login-btn {
+        top: auto !important;
+        bottom: 10px !important;
+        right: 10px !important;
+        padding: 0.5rem 1rem !important;
+        font-size: 0.85rem !important;
+    }
+    
+    .fixed-login-btn span {
+        display: none !important;
+    }
+    
+    .fixed-login-btn i {
+        font-size: 1.1rem !important;
+    }
+}
+
+/* Footer */
+.footer {
+    background: var(--gray-900);
+    color: var(--gray-300);
+    padding: 4rem 0 2rem;
+    margin-top: 4rem;
+}
+
+/* Floating Chatbot */
+.hm-chatbot-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    border: 0;
+    box-shadow: 0 12px 24px rgba(99,102,241,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hm-chatbot-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px rgba(99,102,241,0.45);
+}
+
+.hm-chatbot-panel {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 320px;
+    max-height: 60vh;
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 10000;
+    animation: chatbotFloatIn 240ms ease-out;
+}
+
+.hm-chatbot-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    padding: 12px 16px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.hm-chatbot-messages {
+    padding: 12px 12px 6px 12px;
+    overflow-y: auto;
+    flex: 1;
+    background: linear-gradient(180deg, #fbfbff 0%, #f7f7fb 100%);
+}
+
+.hm-chatbot-input {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    border-top: 1px solid var(--gray-200);
+    background: #fff;
+}
+
+.hm-chat-msg {
+    margin: 8px 0;
+    padding: 10px 12px;
+    border-radius: 12px;
+    max-width: 85%;
+    line-height: 1.4;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.hm-chat-msg.user {
+    background: #e8ecff;
+    margin-left: auto;
+}
+
+.hm-chat-msg.bot {
+    background: #f6f7fb;
+    margin-right: auto;
+}
+
+.hm-chatbot-prompts {
+    background: #fff;
+}
+
+.hm-chatbot-prompts .btn.btn-outline-secondary.btn-sm {
+    border-color: var(--gray-300);
+    color: var(--gray-700);
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+    transition: all 0.15s ease;
+}
+
+.hm-chatbot-prompts .btn.btn-outline-secondary.btn-sm:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    box-shadow: 0 6px 16px rgba(99,102,241,0.18);
+}
+
+@keyframes chatbotFloatIn {
+    from { transform: translateY(8px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.footer h5 {
+    color: white;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.footer a {
+    color: var(--gray-400);
+    text-decoration: none;
+    transition: var(--transition-fast);
+    display: block;
+    padding: 0.25rem 0;
+}
+
+/* hover removed */
+
+/* Current Meal UI Improvements */
+.current-meal-container {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--gray-200);
+    transition: var(--transition-normal);
+}
+
+/* hover removed */
+
+.current-meal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--gray-200);
+}
+
+.current-meal-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin: 0;
+}
+
+.current-meal-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.25rem;
+    box-shadow: var(--shadow-md);
+}
+
+.current-meal-stats {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.meal-stat {
+    text-align: center;
+    padding: 0.5rem 1rem;
+    background: white;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+}
+
+.meal-stat-number {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    display: block;
+}
+
+.meal-stat-label {
+    font-size: 0.75rem;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.food-list-container {
+    min-height: 300px;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.food-list-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.food-list-container::-webkit-scrollbar-track {
+    background: var(--gray-100);
+    border-radius: var(--radius-sm);
+}
+
+.food-list-container::-webkit-scrollbar-thumb {
+    background: var(--gray-400);
+    border-radius: var(--radius-sm);
+}
+
+/* hover removed */
+
+.food-item {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-200);
+    /* Reduce transition scope to avoid flicker */
+    transition: box-shadow 150ms ease, border-color 150ms ease;
+    position: relative;
+    overflow: visible;
+}
+
+.food-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+}
+
+.food-item:hover {
+    /* Soften global hover to avoid layout jumps and flicker */
+    transform: none;
+    box-shadow: var(--shadow-md);
+    border-color: var(--gray-200);
+}
+
+.meal-foods {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+}
+
+.food-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.food-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.food-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.remove-food-btn {
+    background: transparent;
+    border: 0;
+    color: var(--gray-500);
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition-fast);
+}
+
+.remove-food-btn:hover {
+    background: var(--gray-100);
+    color: var(--danger-color);
+}
+
+.meal-type-indicator {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.meal-type-indicator.breakfast { background: #f59e0b; }
+.meal-type-indicator.lunch { background: #10b981; }
+.meal-type-indicator.dinner { background: #3b82f6; }
+.meal-type-indicator.snacks { background: #a855f7; }
+
+.empty-meal-state {
+    text-align: center;
+    color: var(--gray-600);
+    padding: 2rem 1rem;
+}
+
+.empty-meal-icon {
+    font-size: 2rem;
+    color: var(--gray-400);
+    margin-bottom: 0.5rem;
+}
+
+.empty-meal-title {
+    font-weight: 700;
+    color: var(--dark-color);
+}
+
+.empty-meal-description {
+    font-size: 0.9rem;
+}
+
+/* --- Current Meal: compact list styling (matches snippet) --- */
+#currentMealFoods .food-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #f0f0f0;
+}
+
+#currentMealFoods .food-item {
+    background: white;
+    box-shadow: none;
+    border: 1px solid #f0f0f0;
+    margin: 0;
+    padding: 16px;
+}
+
+#currentMealFoods .food-item::before { display: none; }
+
+#currentMealFoods .food-item-header {
+    margin: 0;
+    align-items: center;
+}
+
+#currentMealFoods .food-name {
+    margin: 0;
+    font-weight: 600;
+    color: #333;
+    font-size: 1rem;
+}
+
+#currentMealFoods .food-amount {
+    background: transparent;
+    padding: 0;
+    font-size: 0.875rem;
+    color: #888;
+}
+
+#currentMealFoods .food-calories {
+    background: none;
+    color: #555;
+    font-weight: 500;
+    padding: 0;
+    box-shadow: none;
+}
+
+/* hover removed */
+
+/* Guard against any opacity transitions on hover within tracker */
+#currentMealFoods .food-item, 
+#currentMealFoods .food-item * {
+    opacity: 1 !important;
+}
+
+/* Force visibility for tracker items regardless of other global effects */
+#currentMealFoods .food-item,
+#currentMealFoods .food-item * {
+    visibility: visible !important;
+}
+
+/* Disable entrance animations and transitions within Nutrition Tracker to prevent flicker on reload */
+#trackerContent,
+#trackerContent * {
+    animation: none !important;
+}
+
+#trackerContent .animate-fade-in-up,
+#trackerContent .animate-slide-in-left,
+#trackerContent .animate-slide-in-right {
+    animation: none !important;
+}
+
+#trackerContent .food-item,
+#trackerContent .food-item * {
+    transition: none !important;
+}
+
+/* Ensure quick food cards in tracker remain visible without animations */
+#trackerContent .quick-foods { display: block !important; }
+#trackerContent .food-cards-container { display: grid !important; }
+
+#trackerContent .food-card,
+#trackerContent .food-card * {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+/* Ensure buttons inside Nutrition Tracker are visible despite global .btn animation defaults */
+/* Contact section: make Send Message button simple and without effects */
+#contact .btn,
+#contact .btn-primary {
+    animation: none !important;
+    opacity: 1 !important;
+    background: #0d6efd !important; /* Bootstrap primary */
+    border: 1px solid #0d6efd !important;
+    box-shadow: none !important;
+    transition: none !important;
+}
+
+#contact .btn-primary:hover,
+#contact .btn-primary:focus,
+#contact .btn-primary:active {
+    background: #0d6efd !important;
+    border-color: #0d6efd !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+#contact .btn-primary::before,
+#contact .btn-primary::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* Hide paper-plane icon to keep text-only simple button */
+#contact .btn-primary i {
+    display: none !important;
+}
+#trackerContent .btn,
+#trackerContent .btn * {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+
+#trackerContent .btn {
+    display: inline-flex !important;
+}
+
+/* Quick Breakfast Options - make titles/text white */
+#trackerContent .quick-foods h5,
+#trackerContent .quick-foods .section-title,
+#trackerContent .food-card-name,
+#trackerContent .quick-foods .meal-item span,
+#trackerContent .quick-foods .meal-item small {
+    color: #ffffff !important;
+}
+
+/* Quick Breakfast Options heading text to white */
+#breakfastOptions h1,
+#breakfastOptions h2,
+#breakfastOptions h3,
+#breakfastOptions h4,
+#breakfastOptions h5,
+#breakfastOptions h6 {
+    color: #ffffff !important;
+}
+
+/* Quick Lunch/Dinner/Snacks Options heading text to white */
+#lunchOptions h1,
+#lunchOptions h2,
+#lunchOptions h3,
+#lunchOptions h4,
+#lunchOptions h5,
+#lunchOptions h6,
+#dinnerOptions h1,
+#dinnerOptions h2,
+#dinnerOptions h3,
+#dinnerOptions h4,
+#dinnerOptions h5,
+#dinnerOptions h6,
+#snacksOptions h1,
+#snacksOptions h2,
+#snacksOptions h3,
+#snacksOptions h4,
+#snacksOptions h5,
+#snacksOptions h6 {
+    color: #ffffff !important;
+}
+
+/* Featured workout title and status badge text to white */
+.featured-workout h3 {
+    color: #ffffff !important;
+}
+
+#cbtStatusBadge {
+    color: #ffffff !important;
+}
+
+#trackerContent .animate-fade-in-up,
+#trackerContent .animate-slide-in-left,
+#trackerContent .animate-slide-in-right {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+#currentMealFoods .remove-food-btn {
+    margin-left: 12px;
+    opacity: 0.6;
+}
+
+/* hover removed */
+
+#currentMealFoods .meal-type-indicator { display: none; }
+#currentMealFoods .nutrition-grid { display: none; }
+
+.food-info {
+    flex: 1;
+}
+
+.food-name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 0.25rem;
+    line-height: 1.3;
+}
+
+.food-amount {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    font-weight: 500;
+    background: var(--gray-100);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-md);
+    display: inline-block;
+}
+
+.food-calories {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-lg);
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.food-calories::before {
+    content: '🔥';
+    font-size: 0.875rem;
+}
+
+.nutrition-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.nutrition-item {
+    text-align: center;
+    padding: 0.75rem;
+    background: var(--gray-50);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--gray-200);
+    transition: var(--transition-fast);
+}
+
+/* hover removed */
+
+.nutrition-label {
+    font-size: 0.75rem;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.nutrition-value {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--dark-color);
+}
+
+.nutrition-item.protein .nutrition-value {
+    color: var(--secondary-color);
+}
+
+.nutrition-item.carbs .nutrition-value {
+    color: var(--accent-color);
+}
+
+.nutrition-item.fats .nutrition-value {
+    color: var(--danger-color);
+}
+
+.nutrition-item.fiber .nutrition-value {
+    color: var(--info-color);
+}
+
+.food-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.remove-food-btn {
+    background: linear-gradient(135deg, var(--danger-color), #dc2626);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+}
+
+/* hover removed */
+
+.remove-food-btn:active {
+    transform: scale(0.95);
+}
+
+.empty-meal-state {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: var(--gray-500);
+}
+
+.empty-meal-icon {
+    width: 4rem;
+    height: 4rem;
+    background: var(--gray-100);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.5rem;
+    color: var(--gray-400);
+}
+
+.empty-meal-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--gray-600);
+    margin-bottom: 0.5rem;
+}
+
+.empty-meal-description {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+    line-height: 1.5;
+}
+
+.daily-totals-card {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.daily-totals-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.daily-totals-icon {
+    width: 2rem;
+    height: 2rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.daily-totals-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.totals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+}
+
+.total-item {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.total-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.total-label {
+    font-size: 0.75rem;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.progress-indicators {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.progress-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: var(--transition-fast);
+}
+
+.progress-dot.active {
+    background: rgba(255, 255, 255, 0.8);
+    transform: scale(1.2);
+}
+
+/* Meal Type Indicators */
+.meal-type-indicator {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-md);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.meal-type-indicator.breakfast {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary-color);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.meal-type-indicator.lunch {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--secondary-color);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.meal-type-indicator.dinner {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--accent-color);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.meal-type-indicator.snacks {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--info-color);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+/* Enhanced Dashboard UI */
+.dashboard-container {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+.dashboard-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-xl);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dashboard-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-subtitle {
+    font-size: 1.125rem;
+    color: var(--gray-600);
+    margin-bottom: 0;
+}
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.stat-icon {
+    width: 3rem;
+    height: 3rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    color: white;
+    font-size: 1.25rem;
+    box-shadow: var(--shadow-md);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--dark-color);
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+/* Enhanced Navigation */
+.nav-tabs {
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-xl);
+    padding: 0.5rem;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 2rem;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    color: var(--gray-600);
+    transition: var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-tabs .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    opacity: 0;
+    transition: var(--transition-normal);
+    z-index: -1;
+}
+
+/* hover removed */
+
+/* hover removed */
+
+.nav-tabs .nav-link.active {
+    color: white;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: var(--shadow-md);
+}
+
+.nav-tabs .nav-link.active::before {
+    opacity: 1;
+}
+
+/* Enhanced Tab Content */
+.tab-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    box-shadow: var(--shadow-xl);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-height: 600px;
+}
+
+/* Enhanced Calculator UI */
+.calculator-container {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--gray-200);
+}
+
+.calculator-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.calculator-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.calculator-subtitle {
+    color: var(--gray-600);
+    font-size: 1rem;
+}
+
+.calculator-form {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-200);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-control {
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: var(--transition-fast);
+    background: white;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    outline: none;
+}
+
+.btn-calculate {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    border: none;
+    border-radius: var(--radius-lg);
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    box-shadow: var(--shadow-md);
+    width: 100%;
+}
+
+/* hover removed */
+
+.btn-calculate:active {
+    transform: translateY(0);
+}
+
+/* Enhanced Results Display */
+.results-container {
+    background: linear-gradient(135deg, var(--success-color), #059669);
+    color: white;
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    margin-top: 2rem;
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+}
+
+.results-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.results-value {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.results-unit {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+/* Enhanced Food Cards */
+.food-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.food-card {
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-200);
+    transition: var(--transition-normal);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.food-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transform: scaleX(0);
+    transition: var(--transition-normal);
+}
+
+/* hover removed */
+
+/* hover removed */
+
+.food-card-icon {
+    width: 3rem;
+    height: 3rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    color: white;
+    font-size: 1.25rem;
+    box-shadow: var(--shadow-md);
+}
+
+.food-card-name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.food-card-amount {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    background: var(--gray-100);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-md);
+    display: inline-block;
+}
+
+/* Enhanced Analytics */
+.analytics-container {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--gray-200);
+}
+
+.analytics-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.analytics-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.analytics-subtitle {
+    color: var(--gray-600);
+    font-size: 1rem;
+}
+
+.chart-container {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-200);
+    margin-bottom: 1.5rem;
+}
+
+.chart-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Enhanced BMR Section */
+.bmr-container {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--gray-200);
+}
+
+.bmr-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.bmr-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.bmr-subtitle {
+    color: var(--gray-600);
+    font-size: 1rem;
+}
+
+.bmr-form {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-200);
+    margin-bottom: 2rem;
+}
+
+.bmr-results {
+    background: linear-gradient(135deg, var(--info-color), #1d4ed8);
+    color: white;
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+}
+
+.bmr-results-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.bmr-results-value {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bmr-results-unit {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+/* Enhanced Meal Plans */
+.meal-plans-container {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--gray-200);
+}
+
+/* Featured Workout note text (Complete Body Transformation) */
+.featured-workout .workout-plan small {
+    color: #000000 !important;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.meal-plan-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-200);
+    margin-bottom: 1.5rem;
+    transition: var(--transition-normal);
+}
+
+/* hover removed */
+
+.meal-plan-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.meal-plan-icon {
+    width: 2rem;
+    height: 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.875rem;
+}
+
+.meal-plan-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.meal-plan-item {
+    background: var(--gray-50);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid var(--gray-200);
+    transition: var(--transition-fast);
+}
+
+/* hover removed */
+
+.meal-plan-item-name {
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.meal-plan-item-calories {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+}
+
+/* Enhanced Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out;
+}
+
+.animate-pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Enhanced Loading States */
+.loading-spinner {
+    width: 2rem;
+    height: 2rem;
+    border: 3px solid var(--gray-200);
+    border-top: 3px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+/* Enhanced Success/Error States */
+.alert-enhanced {
+    border: none;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid;
+}
+
+.alert-enhanced.alert-success {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.1));
+    border-left-color: var(--success-color);
+    color: var(--success-color);
+}
+
+.alert-enhanced.alert-danger {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.1));
+    border-left-color: var(--danger-color);
+    color: var(--danger-color);
+}
+
+.alert-enhanced.alert-warning {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(217, 119, 6, 0.1));
+    border-left-color: var(--warning-color);
+    color: var(--warning-color);
+}
+
+.alert-enhanced.alert-info {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(29, 78, 216, 0.1));
+    border-left-color: var(--info-color);
+    color: var(--info-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 100px 0 80px;
+        text-align: center;
+        background-attachment: scroll; /* Disable fixed attachment on mobile for better performance */
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    
+    .card-body {
+        padding: 1.5rem;
+    }
+    
+    .workout-header {
+        padding: 1rem 1.5rem;
+    }
+    
+    .workout-body {
+        padding: 1.5rem;
+    }
+    
+    .dashboard-stats {
+        padding: 2rem;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --gray-50: #111827;
+        --gray-100: #1f2937;
+        --gray-200: #374151;
+        --gray-300: #4b5563;
+        --gray-400: #6b7280;
+        --gray-500: #9ca3af;
+        --gray-600: #d1d5db;
+        --gray-700: #e5e7eb;
+        --gray-800: #f3f4f6;
+        --gray-900: #f9fafb;
+    }
+    
+    body {
+        background-color: var(--gray-50);
+        color: var(--gray-800);
+    }
+    
+    .card, .chart-container, .workout-card, .leaderboard-item {
+        background: var(--gray-100);
+        border-color: var(--gray-200);
+    }
+    
+    .form-control {
+        background-color: var(--gray-100);
+        border-color: var(--gray-300);
+        color: var(--gray-800);
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-fade-in-left {
+    animation: fadeInLeft 0.6s ease-out;
+}
+
+.animate-fade-in-right {
+    animation: fadeInRight 0.6s ease-out;
+}
+
+/* Utility Classes */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.shadow-glow {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+.border-gradient {
+    border: 2px solid;
+    border-image: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) 1;
+}
+
+/* Why Choose HealthMate Cards - White Text */
+#benefits .card {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+}
+
+#benefits .card-title,
+#benefits .card-text,
+#benefits .list-unstyled li {
+    color: white !important;
+}
+
+#benefits .feature-icon {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+#benefits .text-success {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Additional white text styling for benefit cards */
+#benefits .card p,
+#benefits .card span,
+#benefits .card div {
+    color: white !important;
+}
+
+#benefits .text-muted {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Removed global wildcard hover/focus/active override to restore normal hover behavior */
+
+/* Neutralize scrollbar hover color changes (scoped to webkit scrollbar thumb only) */
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
+}
+
+/* Allow components to use their own transitions/animations again */
+/* (Global transition/animation kill removed) */
+
+/* Remove pointer cursor to avoid hover affordance but keep click functionality */
+a,
+button,
+.btn,
+.nav-link,
+.dropdown-item,
+[role="button"],
+input[type="button"],
+input[type="submit"] {
+    cursor: default !important;
+}
+
+/* Kill any remaining hover/focus/active effects specifically within the hero section */
+.hero-section *,
+.hero-section *::before,
+.hero-section *::after {
+    transition: none !important;
+    animation: none !important;
+}
+
+@media (hover:hover) {
+    .hero-section *:hover,
+    .hero-section *:focus,
+    .hero-section *:active {
+        color: inherit !important;
+        border-color: inherit !important;
+        box-shadow: none !important;
+        text-decoration: none !important;
+        transform: none !important;
+        filter: none !important;
+        opacity: 1 !important;
+        outline: none !important;
+    }
+    .hero-section *:hover::before,
+    .hero-section *:hover::after {
+        opacity: 0 !important;
+        transform: none !important;
+        animation: none !important;
+        display: none !important;
+    }
+}
+
+/* Remove pointer cursor in hero section to eliminate hover affordance */
+.hero-section a,
+.hero-section button,
+.hero-section .btn,
+.hero-section [role="button"] {
+    cursor: default !important;
+}
+
+/* Contact Send Message button - force no hover/animation */
+#contact .btn-primary,
+#contact .btn-primary:hover,
+#contact .btn-primary:focus,
+#contact .btn-primary:active {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3) !important;
+    transform: none !important;
+    animation: none !important;
+    transition: background 0.2s ease, box-shadow 0.2s ease !important;
+    position: relative !important;
+    z-index: 2 !important;
+    opacity: 1 !important;
+}
+
+#contact .btn-primary::before,
+#contact .btn-primary:hover::before,
+#contact .btn-primary:focus::before,
+#contact .btn-primary:active::before {
+    display: none !important;
+}
+
+/* Plain hover: slightly darker gradient, no movement */
+#contact .btn-primary:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark)) !important;
+    box-shadow: 0 12px 35px rgba(99, 102, 241, 0.4) !important;
+}
+
+/* (reverted) */
+
+/* Why Choose HealthMate Cards - White Text */
+#benefits .card {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+}
+
+#benefits .card-title,
+#benefits .card-text,
+#benefits .list-unstyled li {
+    color: white !important;
+}
+
+#benefits .feature-icon {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+#benefits .text-success {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Additional white text styling for benefit cards */
+#benefits .card p,
+#benefits .card span,
+#benefits .card div {
+    color: white !important;
+}
+
+#benefits .text-muted {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Final lock: ensure the hero primary button never changes on hover/focus/active (wins cascade) */
+.hero-section .hero-primary-btn,
+.hero-section .hero-primary-btn:hover,
+.hero-section .hero-primary-btn:focus,
+.hero-section .hero-primary-btn:active,
+.hero-section .hero-primary-btn *,
+.hero-section .hero-primary-btn *:hover,
+.hero-section .hero-primary-btn *:focus,
+.hero-section .hero-primary-btn *:active {
+	background: #ffffff !important;
+	background-color: #ffffff !important;
+	color: var(--primary-color) !important;
+	border-color: #ffffff !important;
+	box-shadow: none !important;
+	transform: none !important;
+	filter: none !important;
+	text-decoration: none !important;
+	outline: none !important;
+	opacity: 1 !important;
+	transition: none !important;
+	animation: none !important;
+	appearance: none !important;
+	-webkit-appearance: none !important;
+	-moz-appearance: none !important;
+}

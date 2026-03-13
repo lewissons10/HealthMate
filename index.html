@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthMate - AI-Powered Personalized Fitness App</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Landing page: completely disable pointer hover in hero to stop any visual reaction */
+        .hero-section * { pointer-events: none !important; }
+        .hero-section .hero-primary-btn, .hero-section .hero-primary-btn * { pointer-events: auto !important; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-heartbeat me-2"></i>HealthMate
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#benefits">Benefits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary ms-2" href="#" data-bs-toggle="modal" data-bs-target="#authModal">
+                            <i class="fas fa-sign-in-alt me-1"></i>Get Started
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content animate-fade-in-left">
+                    <h1 class="hero-title">Transform Your Fitness Journey with AI</h1>
+                    <p class="hero-subtitle">HealthMate is your personalized AI-powered fitness companion that adapts to your goals, tracks your progress, and keeps you motivated every step of the way.</p>
+                    
+                    <div class="mt-4 d-flex align-items-center gap-4">
+                        <div class="d-flex align-items-center">
+                            <div class="me-3">
+                                <i class="fas fa-users fa-2x text-white-50"></i>
+                            </div>
+                            <div>
+                                <div class="text-white fw-bold">10K+</div>
+                                <div class="text-white-50 small">Active Users</div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="me-3">
+                                <i class="fas fa-star fa-2x text-warning"></i>
+                            </div>
+                            <div>
+                                <div class="text-white fw-bold">4.9/5</div>
+                                <div class="text-white-50 small">User Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center animate-fade-in-right">
+                    <div class="hero-image position-relative">
+                        <div class="position-relative">
+                            <i class="fas fa-dumbbell" style="font-size: 20rem; opacity: 0.2; color: white;"></i>
+                            <div class="position-absolute top-50 start-50 translate-middle">
+                                <div class="glass rounded-circle p-4" style="width: 200px; height: 200px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-brain fa-4x text-white"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-4 fw-bold mb-3 gradient-text">Powerful Features</h2>
+                    <p class="lead text-muted">Everything you need to achieve your fitness goals with AI-powered intelligence</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h5 class="card-title fw-bold mb-3">AI-Powered Recommendations</h5>
+                        <p class="card-text text-muted">Get personalized workout plans and diet recommendations based on your goals, fitness level, and progress tracking.</p>
+                        <div class="mt-3">
+                            <span class="badge bg-primary me-2">Smart</span>
+                            <span class="badge bg-success me-2">Personalized</span>
+                            <span class="badge bg-info">Adaptive</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h5 class="card-title fw-bold mb-3">Progress Tracking</h5>
+                        <p class="card-text text-muted">Visual charts and analytics for weight, calories, and workout progress with detailed insights and trends.</p>
+                        <div class="mt-3">
+                            <span class="badge bg-primary me-2">Analytics</span>
+                            <span class="badge bg-success me-2">Visual</span>
+                            <span class="badge bg-info">Insights</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h5 class="card-title fw-bold mb-3">Gamification System</h5>
+                        <p class="card-text text-muted">Earn points, badges, achievements, and compete on leaderboards to stay motivated and engaged.</p>
+                        <div class="mt-3">
+                            <span class="badge bg-primary me-2">Rewards</span>
+                            <span class="badge bg-success me-2">Competition</span>
+                            <span class="badge bg-info">Motivation</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h5 class="card-title fw-bold mb-3">Mobile-First Design</h5>
+                        <p class="card-text text-muted">Beautiful, responsive interface that works perfectly on all devices - desktop, tablet, and mobile.</p>
+                        <div class="mt-3">
+                            <span class="badge bg-primary me-2">Responsive</span>
+                            <span class="badge bg-success me-2">Modern</span>
+                            <span class="badge bg-info">Accessible</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h5 class="card-title fw-bold mb-3">Secure & Private</h5>
+                        <p class="card-text text-muted">Your data is protected with enterprise-grade security and privacy controls you can trust.</p>
+                        <div class="mt-3">
+                            <span class="badge bg-primary me-2">Secure</span>
+                            <span class="badge bg-success me-2">Private</span>
+                            <span class="badge bg-info">Trusted</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h5 class="card-title fw-bold mb-3">Community Support</h5>
+                        <p class="card-text text-muted">Connect with like-minded fitness enthusiasts, share achievements, and get support from the community.</p>
+                        <div class="mt-3">
+                            <span class="badge bg-primary me-2">Social</span>
+                            <span class="badge bg-success me-2">Support</span>
+                            <span class="badge bg-info">Community</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-4 fw-bold mb-3 gradient-text">Why Choose HealthMate?</h2>
+                    <p class="lead text-muted">Join thousands of users who have transformed their fitness journey</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card h-100 border-0 shadow-lg">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="feature-icon me-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                    <i class="fas fa-target"></i>
+                                </div>
+                                <h5 class="card-title fw-bold mb-0">Personalized Experience</h5>
+                            </div>
+                            <p class="card-text text-muted">Our AI learns your preferences, fitness level, and goals to create a truly personalized experience that adapts as you progress.</p>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Custom workout plans</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Adaptive recommendations</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Goal-based tracking</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card h-100 border-0 shadow-lg">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="feature-icon me-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <h5 class="card-title fw-bold mb-0">Fast Results</h5>
+                            </div>
+                            <p class="card-text text-muted">Optimized workouts and smart recommendations help you achieve your fitness goals faster than traditional methods.</p>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Optimized routines</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Efficient workouts</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Smart scheduling</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-4 fw-bold mb-3 gradient-text">Get In Touch</h2>
+                    <p class="lead text-muted">Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-lg">
+                        <div class="card-body p-5">
+                            <form id="contactForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="name" class="form-label">Name</label>
+                                        <input type="text" class="form-control" id="name" name="name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email" name="email" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="subject" class="form-label">Subject</label>
+                                        <input type="text" class="form-control" id="subject" name="subject" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="message" class="form-label">Message</label>
+                                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="btn btn-primary btn-lg">
+                                            <i class="fas fa-paper-plane me-2"></i>Send Message
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="gradient-text">HealthMate</h5>
+                    <p class="text-muted">Your AI-powered fitness companion for a healthier, stronger you.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-muted"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-muted"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-muted"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-muted"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Product</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Updates</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 text-muted">&copy; 2024 HealthMate. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">Made with <i class="fas fa-heart text-danger"></i> for fitness enthusiasts</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Authentication Modal -->
+    <div class="modal fade" id="authModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-user-circle me-2"></i>Welcome to HealthMate
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs" id="authTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab">
+                                <i class="fas fa-sign-in-alt me-2"></i>Login
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab">
+                                <i class="fas fa-user-plus me-2"></i>Register
+                            </button>
+                        </li>
+                    </ul>
+                    
+                    <div class="tab-content mt-4" id="authTabsContent">
+                        <!-- Login Tab -->
+                        <div class="tab-pane fade show active" id="login" role="tabpanel">
+                            <form id="loginForm">
+                                <div class="mb-3">
+                                    <label for="loginUsername" class="form-label">Username</label>
+                                    <input type="text" class="form-control" id="loginUsername" name="username" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="loginPassword" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="loginPassword" name="password" required>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-sign-in-alt me-2"></i>Login
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <!-- Register Tab -->
+                        <div class="tab-pane fade" id="register" role="tabpanel">
+                            <form id="registerForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="regUsername" class="form-label">Username</label>
+                                        <input type="text" class="form-control" id="regUsername" name="username" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="regEmail" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="regEmail" name="email" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="regFirstName" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="regFirstName" name="first_name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="regLastName" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="regLastName" name="last_name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="regAge" class="form-label">Age</label>
+                                        <input type="number" class="form-control" id="regAge" name="age" min="13" max="100" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="regWeight" class="form-label">Weight (kg)</label>
+                                        <input type="number" class="form-control" id="regWeight" name="weight" step="0.1" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="regHeight" class="form-label">Height (cm)</label>
+                                        <input type="number" class="form-control" id="regHeight" name="height" step="0.1" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="regGoal" class="form-label">Fitness Goal</label>
+                                        <select class="form-control" id="regGoal" name="fitness_goal" required>
+                                            <option value="">Select Goal</option>
+                                            <option value="weight_loss">Weight Loss</option>
+                                            <option value="muscle_gain">Muscle Gain</option>
+                                            <option value="endurance">Endurance</option>
+                                            <option value="general_fitness">General Fitness</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="regPassword" class="form-label">Password</label>
+                                        <input type="password" class="form-control" id="regPassword" name="password" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="d-grid">
+                                            <button type="submit" class="btn btn-primary">
+                                                <i class="fas fa-user-plus me-2"></i>Create Account
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fixed Login Button -->
+    <a href="#" class="fixed-login-btn" data-bs-toggle="modal" data-bs-target="#authModal">
+        <i class="fas fa-sign-in-alt"></i>
+        <span>Login</span>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+    "to": "test@example.com",
+    "from": "noreply@healthmate.com",
+    "from_name": "HealthMate",
+    "subject": "Welcome to HealthMate - Your Fitness Journey Starts Here!",
+    "message": "Hi Test User,\n\nWelcome to HealthMate! We're excited to help you achieve your fitness goals.\n\nHere's what you can do with HealthMate:\n\u2022 Track your workouts and progress\n\u2022 Get personalized workout recommendations\n\u2022 Earn points and achievements\n\u2022 Connect with your fitness community\n\nStart your fitness journey today by logging into your dashboard!\n\nBest regards,\nThe HealthMate Team\n---\nThis is an automated welcome email from HealthMate Fitness App.",
+    "timestamp": "2025-08-27 21:51:46"
+}

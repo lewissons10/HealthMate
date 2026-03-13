@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food API Integration Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Food API Integration Test</h2>
+        <p>This page tests the integration between the food database API and the Advanced Nutrition Tracker.</p>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Test Food Search</h4>
+                <div class="mb-3">
+                    <input type="text" id="foodSearch" class="form-control" placeholder="Search for foods...">
+                    <div id="foodSuggestions" class="suggestions-dropdown" style="display: none;"></div>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label">Portion Size</label>
+                    <div class="input-group">
+                        <input type="number" id="portionSize" class="form-control" placeholder="100" value="100">
+                        <select id="portionUnit" class="form-select">
+                            <option value="g">g</option>
+                            <option value="ml">ml</option>
+                            <option value="slice">slice</option>
+                            <option value="medium">medium</option>
+                            <option value="tbsp">tbsp</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button id="addFoodBtn" class="btn btn-primary" onclick="testAddFood()">Add Food</button>
+            </div>
+            
+            <div class="col-md-6">
+                <h4>Test Quick Meal Options</h4>
+                <div class="mb-3">
+                    <label class="form-label">Select Meal Type</label>
+                    <div class="btn-group w-100" role="group">
+                        <input type="radio" class="btn-check" name="mealType" id="breakfast" value="breakfast" checked>
+                        <label class="btn btn-outline-primary" for="breakfast">Breakfast</label>
+                        <input type="radio" class="btn-check" name="mealType" id="lunch" value="lunch">
+                        <label class="btn btn-outline-primary" for="lunch">Lunch</label>
+                        <input type="radio" class="btn-check" name="mealType" id="dinner" value="dinner">
+                        <label class="btn btn-outline-primary" for="dinner">Dinner</label>
+                        <input type="radio" class="btn-check" name="mealType" id="snacks" value="snacks">
+                        <label class="btn btn-outline-primary" for="snacks">Snacks</label>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <h6>Quick Add Options:</h6>
+                    <button class="btn btn-outline-success me-2 mb-2" onclick="testQuickAdd('chicken_breast', 150, 'g')">
+                        <i class="fas fa-drumstick-bite"></i> Chicken Breast
+                    </button>
+                    <button class="btn btn-outline-success me-2 mb-2" onclick="testQuickAdd('salmon', 120, 'g')">
+                        <i class="fas fa-fish"></i> Salmon
+                    </button>
+                    <button class="btn btn-outline-success me-2 mb-2" onclick="testQuickAdd('eggs', 2, 'medium')">
+                        <i class="fas fa-egg"></i> Eggs
+                    </button>
+                    <button class="btn btn-outline-success me-2 mb-2" onclick="testQuickAdd('brown_rice', 80, 'g')">
+                        <i class="fas fa-seedling"></i> Brown Rice
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-12">
+                <h4>Current Meal</h4>
+                <div id="currentMeal" class="border p-3 rounded">
+                    <p class="text-muted">No foods added yet. Try searching for a food or using quick add options.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-12">
+                <h4>API Test Results</h4>
+                <div id="apiResults" class="border p-3 rounded">
+                    <p class="text-muted">API test results will appear here...</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <a href="pages/dashboard.php" class="btn btn-secondary">← Back to Dashboard</a>
+            <a href="test_food_api.php" class="btn btn-info">Test Food API</a>
+            <a href="db/install_food_db.php" class="btn btn-warning">Install Food Database</a>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentMealType = 'breakfast';
+        let dailyMeals = {
+            breakfast: [],
+            lunch: [],
+            dinner: [],
+            snacks: []
+        };
+        let selectedFoodData = null;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            const foodSearch = document.getElementById('foodSearch');
+            const mealTypeRadios = document.querySelectorAll('input[name="mealType"]');
+            
+            // Food search event listener
+            foodSearch.addEventListener('input', handleFoodSearch);
+            
+            // Meal type change event listeners
+            mealTypeRadios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    currentMealType = e.target.value;
+                    updateCurrentMealDisplay();
+                });
+            });
+            
+            // Test API connection
+            testAPIConnection();
+        });
+
+        function handleFoodSearch(e) {
+            const query = e.target.value.toLowerCase().trim();
+            const suggestionsDropdown = document.getElementById('foodSuggestions');
+            
+            if (query.length < 2) {
+                suggestionsDropdown.style.display = 'none';
+                return;
+            }
+            
+            // Fetch from database API
+            fetch(`php/food_api.php?action=search&q=${encodeURIComponent(query)}&limit=10`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        console.error('API Error:', data.error);
+                        suggestionsDropdown.style.display = 'none';
+                        return;
+                    }
+                    
+                    const foods = data.foods || [];
+                    
+                    if (foods.length === 0) {
+                        suggestionsDropdown.style.display = 'none';
+                        return;
+                    }
+                    
+                    suggestionsDropdown.innerHTML = foods.map(food => `
+                        <div class="suggestion-item p-2 border-bottom" onclick="selectFoodFromAPI(${food.id}, '${food.name}', ${food.calories_per_100g}, '${food.unit}', '${food.category}')">
+                            <div class="fw-bold">${food.name}</div>
+                            <small class="text-muted">${food.calories_per_100g} cal per 100${food.unit} • ${food.category}</small>
+                        </div>
+                    `).join('');
+                    
+                    suggestionsDropdown.style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error fetching food data:', error);
+                    suggestionsDropdown.style.display = 'none';
+                });
+        }
+
+        function selectFoodFromAPI(foodId, foodName, caloriesPer100g, unit, category) {
+            const foodSearch = document.getElementById('foodSearch');
+            const suggestionsDropdown = document.getElementById('foodSuggestions');
+            
+            foodSearch.value = foodName;
+            suggestionsDropdown.style.display = 'none';
+            
+            // Set default portion size
+            const portionSize = document.getElementById('portionSize');
+            const portionUnit = document.getElementById('portionUnit');
+            
+            portionSize.value = 100;
+            portionUnit.value = unit;
+            
+            // Store food data
+            selectedFoodData = {
+                id: foodId,
+                name: foodName,
+                caloriesPer100g: caloriesPer100g,
+                unit: unit,
+                category: category
+            };
+            
+            logAPIResult(`Selected food: ${foodName} (ID: ${foodId})`);
+        }
+
+        function testAddFood() {
+            if (!selectedFoodData) {
+                logAPIResult('Error: No food selected', 'error');
+                return;
+            }
+            
+            const portionSize = parseFloat(document.getElementById('portionSize').value);
+            const portionUnit = document.getElementById('portionUnit').value;
+            
+            if (!portionSize) {
+                logAPIResult('Error: Please enter a portion size', 'error');
+                return;
+            }
+            
+            // Fetch complete food data from API
+            fetch(`php/food_api.php?action=get_by_id&id=${selectedFoodData.id}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        logAPIResult('Error fetching food details: ' + data.error, 'error');
+                        return;
+                    }
+                    
+                    const food = data.food;
+                    
+                    // Calculate nutrition
+                    const multiplier = portionSize / 100;
+                    const nutrition = {
+                        calories: Math.round(food.calories_per_100g * multiplier),
+                        protein: Math.round(food.protein * multiplier * 10) / 10,
+                        carbs: Math.round(food.carbs * multiplier * 10) / 10,
+                        fats: Math.round(food.fats * multiplier * 10) / 10
+                    };
+                    
+                    // Add to current meal
+                    const foodItem = {
+                        id: Date.now(),
+                        name: food.name,
+                        portion: portionSize,
+                        unit: portionUnit,
+                        calories: nutrition.calories,
+                        protein: nutrition.protein,
+                        carbs: nutrition.carbs,
+                        fats: nutrition.fats,
+                        category: food.category,
+                        foodId: food.id
+                    };
+                    
+                    dailyMeals[currentMealType].push(foodItem);
+                    updateCurrentMealDisplay();
+                    
+                    logAPIResult(`Successfully added ${food.name} to ${currentMealType}!`, 'success');
+                    
+                    // Clear form
+                    document.getElementById('foodSearch').value = '';
+                    document.getElementById('portionSize').value = '';
+                    selectedFoodData = null;
+                })
+                .catch(error => {
+                    console.error('Error fetching food details:', error);
+                    logAPIResult('Error fetching food details. Please try again.', 'error');
+                });
+        }
+
+        function testQuickAdd(foodKey, amount, unit) {
+            logAPIResult(`Testing quick add: ${foodKey} (${amount} ${unit})`);
+            
+            // Search for food in API
+            fetch(`php/food_api.php?action=search&q=${encodeURIComponent(foodKey)}&limit=1`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error || !data.foods || data.foods.length === 0) {
+                        logAPIResult(`Food not found: ${foodKey}`, 'error');
+                        return;
+                    }
+                    
+                    const apiFood = data.foods[0];
+                    
+                    // Calculate nutrition
+                    const multiplier = amount / 100;
+                    const nutrition = {
+                        calories: Math.round(apiFood.calories_per_100g * multiplier),
+                        protein: Math.round(apiFood.protein * multiplier * 10) / 10,
+                        carbs: Math.round(apiFood.carbs * multiplier * 10) / 10,
+                        fats: Math.round(apiFood.fats * multiplier * 10) / 10
+                    };
+                    
+                    // Add to current meal
+                    const foodItem = {
+                        id: Date.now() + Math.random(),
+                        name: apiFood.name,
+                        amount: `${amount} ${unit}`,
+                        calories: nutrition.calories,
+                        protein: nutrition.protein,
+                        carbs: nutrition.carbs,
+                        fats: nutrition.fats,
+                        category: apiFood.category,
+                        foodId: apiFood.id
+                    };
+                    
+                    dailyMeals[currentMealType].push(foodItem);
+                    updateCurrentMealDisplay();
+                    
+                    logAPIResult(`Successfully added ${apiFood.name} to ${currentMealType}!`, 'success');
+                })
+                .catch(error => {
+                    console.error('Error fetching food from API:', error);
+                    logAPIResult('Error fetching food data', 'error');
+                });
+        }
+
+        function updateCurrentMealDisplay() {
+            const currentMealDiv = document.getElementById('currentMeal');
+            const currentMealFoods = dailyMeals[currentMealType];
+            
+            if (currentMealFoods.length === 0) {
+                currentMealDiv.innerHTML = '<p class="text-muted">No foods added yet. Try searching for a food or using quick add options.</p>';
+                return;
+            }
+            
+            currentMealDiv.innerHTML = `
+                <h6>${currentMealType.charAt(0).toUpperCase() + currentMealType.slice(1)} Foods:</h6>
+                ${currentMealFoods.map(food => `
+                    <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+                        <div>
+                            <strong>${food.name}</strong>
+                            <small class="text-muted d-block">${food.portion || food.amount} ${food.unit}</small>
+                        </div>
+                        <div class="text-end">
+                            <div>${food.calories} cal</div>
+                            <small class="text-muted">P: ${food.protein}g | C: ${food.carbs}g | F: ${food.fats}g</small>
+                        </div>
+                    </div>
+                `).join('')}
+            `;
+        }
+
+        function testAPIConnection() {
+            logAPIResult('Testing API connection...');
+            
+            fetch('php/food_api.php?action=get_all&limit=5')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        logAPIResult('API Error: ' + data.error, 'error');
+                    } else {
+                        logAPIResult(`API Connection successful! Found ${data.foods.length} foods.`, 'success');
+                    }
+                })
+                .catch(error => {
+                    logAPIResult('API Connection failed: ' + error.message, 'error');
+                });
+        }
+
+        function logAPIResult(message, type = 'info') {
+            const resultsDiv = document.getElementById('apiResults');
+            const timestamp = new Date().toLocaleTimeString();
+            const alertClass = type === 'error' ? 'alert-danger' : type === 'success' ? 'alert-success' : 'alert-info';
+            
+            resultsDiv.innerHTML = `
+                <div class="alert ${alertClass}">
+                    <strong>[${timestamp}]</strong> ${message}
+                </div>
+            `;
+        }
+    </script>
+
+    <style>
+        .suggestions-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-top: none;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .suggestion-item {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .suggestion-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .mb-3 {
+            position: relative;
+        }
+    </style>
+</body>
+</html>

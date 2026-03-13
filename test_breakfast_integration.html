@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breakfast Integration Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Breakfast Integration Test</h2>
+        <p>This page tests the breakfast food cards integration with the database API.</p>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Test Breakfast Food Cards</h4>
+                <p>Click on any breakfast food card to add it to the current meal:</p>
+                
+                <!-- Protein Options -->
+                <div class="mb-3">
+                    <h6><i class="fas fa-drumstick-bite me-2 text-primary"></i>Protein Power</h6>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
+                            <button class="btn btn-outline-primary w-100 breakfast-btn" data-food="chicken_breast" data-amount="150" data-unit="g">
+                                <div class="breakfast-item">
+                                    <i class="fas fa-drumstick-bite"></i>
+                                    <span>Chicken Breast</span>
+                                    <small>150g, 248 cal, 46g protein</small>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
+                            <button class="btn btn-outline-primary w-100 breakfast-btn" data-food="eggs" data-amount="2" data-unit="large">
+                                <div class="breakfast-item">
+                                    <i class="fas fa-egg"></i>
+                                    <span>Eggs</span>
+                                    <small>2 large, 155 cal, 13g protein</small>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
+                            <button class="btn btn-outline-primary w-100 breakfast-btn" data-food="greek_yogurt" data-amount="200" data-unit="g">
+                                <div class="breakfast-item">
+                                    <i class="fas fa-blender"></i>
+                                    <span>Greek Yogurt</span>
+                                    <small>200g, 118 cal, 20g protein</small>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carb Options -->
+                <div class="mb-3">
+                    <h6><i class="fas fa-seedling me-2 text-success"></i>Energy Carbs</h6>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
+                            <button class="btn btn-outline-success w-100 breakfast-btn" data-food="oatmeal" data-amount="50" data-unit="g">
+                                <div class="breakfast-item">
+                                    <i class="fas fa-bowl-food"></i>
+                                    <span>Oatmeal</span>
+                                    <small>50g dry, 195 cal, 35g carbs</small>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
+                            <button class="btn btn-outline-success w-100 breakfast-btn" data-food="banana" data-amount="1" data-unit="medium">
+                                <div class="breakfast-item">
+                                    <i class="fas fa-banana"></i>
+                                    <span>Banana</span>
+                                    <small>1 medium, 105 cal, 27g carbs</small>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Healthy Fats -->
+                <div class="mb-3">
+                    <h6><i class="fas fa-heart me-2 text-warning"></i>Healthy Fats</h6>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
+                            <button class="btn btn-outline-warning w-100 breakfast-btn" data-food="avocado" data-amount="0.5" data-unit="medium">
+                                <div class="breakfast-item">
+                                    <i class="fas fa-leaf"></i>
+                                    <span>Avocado</span>
+                                    <small>1/2 medium, 120 cal, 11g fat</small>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
+                            <button class="btn btn-outline-warning w-100 breakfast-btn" data-food="almonds" data-amount="30" data-unit="g">
+                                <div class="breakfast-item">
+                                    <i class="fas fa-nut"></i>
+                                    <span>Almonds</span>
+                                    <small>30g, 174 cal, 15g fat</small>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Complete Breakfast Combos -->
+                <div class="mb-3">
+                    <h6><i class="fas fa-star me-2 text-info"></i>Complete Combos</h6>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 mb-2">
+                            <button class="btn btn-outline-info w-100 breakfast-combo-btn" data-combo="protein_power">
+                                <div class="breakfast-item">
+                                    <i class="fas fa-dumbbell"></i>
+                                    <span>Protein Power</span>
+                                    <small>Eggs + Yogurt + Berries</small>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-2">
+                            <button class="btn btn-outline-info w-100 breakfast-combo-btn" data-combo="energy_boost">
+                                <div class="breakfast-item">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>Energy Boost</span>
+                                    <small>Oatmeal + Banana + Almonds</small>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <h4>Current Meal</h4>
+                <div id="currentMeal" class="border p-3 rounded mb-3">
+                    <p class="text-muted">No foods added yet. Click on breakfast food cards above!</p>
+                </div>
+                
+                <h4>Daily Totals</h4>
+                <div id="dailyTotals" class="border p-3 rounded">
+                    <div class="row text-center">
+                        <div class="col-3">
+                            <div class="fw-bold text-primary">Calories</div>
+                            <div id="totalCalories">0</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="fw-bold text-success">Protein</div>
+                            <div id="totalProtein">0g</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="fw-bold text-warning">Carbs</div>
+                            <div id="totalCarbs">0g</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="fw-bold text-danger">Fats</div>
+                            <div id="totalFats">0g</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <a href="pages/dashboard.php" class="btn btn-secondary">← Back to Dashboard</a>
+            <a href="test_integration.html" class="btn btn-info">Test Full Integration</a>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentMealType = 'breakfast';
+        let dailyMeals = {
+            breakfast: [],
+            lunch: [],
+            dinner: [],
+            snacks: []
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            setupBreakfastOptions();
+        });
+
+        // Breakfast Options Functions
+        function setupBreakfastOptions() {
+            // Set up individual breakfast food buttons
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.breakfast-btn')) {
+                    const btn = e.target.closest('.breakfast-btn');
+                    const food = btn.dataset.food;
+                    const amount = btn.dataset.amount;
+                    const unit = btn.dataset.unit;
+                    
+                    addBreakfastFood(food, amount, unit);
+                }
+                
+                if (e.target.closest('.breakfast-combo-btn')) {
+                    const btn = e.target.closest('.breakfast-combo-btn');
+                    const combo = btn.dataset.combo;
+                    
+                    addBreakfastCombo(combo);
+                }
+            });
+        }
+
+        function addBreakfastFood(foodKey, amount, unit) {
+            // Ensure we're on breakfast meal type
+            currentMealType = 'breakfast';
+            
+            // Try to find food in local database first
+            const food = foodDatabase[foodKey];
+            if (food) {
+                addBreakfastFoodFromLocal(food, amount, unit);
+                return;
+            }
+            
+            // If not found locally, search in database API
+            fetch(`php/food_api.php?action=search&q=${encodeURIComponent(foodKey)}&limit=1`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error || !data.foods || data.foods.length === 0) {
+                        showNotification('Food not found in database', 'warning');
+                        return;
+                    }
+                    
+                    const apiFood = data.foods[0];
+                    addBreakfastFoodFromAPI(apiFood, amount, unit);
+                })
+                .catch(error => {
+                    console.error('Error fetching food from API:', error);
+                    showNotification('Error fetching food data', 'error');
+                });
+        }
+
+        function addBreakfastFoodFromLocal(food, amount, unit) {
+            // Convert amount to grams for calculation
+            const convertedAmount = convertPortionToGrams(parseFloat(amount), unit, food.name);
+            
+            // Calculate nutrition
+            const calories = (food.caloriesPer100g * convertedAmount) / 100;
+            const protein = (food.protein * convertedAmount) / 100;
+            const carbs = (food.carbs * convertedAmount) / 100;
+            const fats = (food.fats * convertedAmount) / 100;
+            
+            // Create food data
+            const foodData = {
+                id: Date.now() + Math.random(),
+                name: food.name,
+                amount: `${amount} ${unit}`,
+                calories: Math.round(calories),
+                protein: Math.round(protein),
+                carbs: Math.round(carbs),
+                fats: Math.round(fats),
+                fiber: Math.round((food.fiber * convertedAmount) / 100),
+                sugar: Math.round((food.sugar * convertedAmount) / 100)
+            };
+            
+            // Add to daily meals
+            dailyMeals[currentMealType].push(foodData);
+            
+            // Update display
+            updateCurrentMealDisplay();
+            updateDailyTotals();
+            
+            // Show success notification
+            showNotification(`${food.name} added to breakfast!`, 'success');
+        }
+
+        function addBreakfastFoodFromAPI(apiFood, amount, unit) {
+            // Convert amount to grams for calculation
+            const convertedAmount = convertPortionToGrams(parseFloat(amount), unit, apiFood.name);
+            
+            // Calculate nutrition
+            const calories = (apiFood.calories_per_100g * convertedAmount) / 100;
+            const protein = (apiFood.protein * convertedAmount) / 100;
+            const carbs = (apiFood.carbs * convertedAmount) / 100;
+            const fats = (apiFood.fats * convertedAmount) / 100;
+            
+            // Create food data
+            const foodData = {
+                id: Date.now() + Math.random(),
+                name: apiFood.name,
+                amount: `${amount} ${unit}`,
+                calories: Math.round(calories),
+                protein: Math.round(protein),
+                carbs: Math.round(carbs),
+                fats: Math.round(fats),
+                fiber: Math.round((apiFood.fiber * convertedAmount) / 100),
+                sugar: Math.round((apiFood.sugar * convertedAmount) / 100),
+                category: apiFood.category,
+                foodId: apiFood.id // Store database ID for future reference
+            };
+            
+            // Add to daily meals
+            dailyMeals[currentMealType].push(foodData);
+            
+            // Update display
+            updateCurrentMealDisplay();
+            updateDailyTotals();
+            
+            // Show success notification
+            showNotification(`${apiFood.name} added to breakfast!`, 'success');
+        }
+
+        function addBreakfastCombo(comboType) {
+            // Ensure we're on breakfast meal type
+            currentMealType = 'breakfast';
+            
+            const combos = {
+                protein_power: [
+                    { food: 'eggs', amount: '2', unit: 'large' },
+                    { food: 'greek_yogurt', amount: '200', unit: 'g' },
+                    { food: 'mixed_berries', amount: '50', unit: 'g' }
+                ],
+                energy_boost: [
+                    { food: 'oatmeal', amount: '50', unit: 'g' },
+                    { food: 'banana', amount: '1', unit: 'medium' },
+                    { food: 'almonds', amount: '30', unit: 'g' }
+                ]
+            };
+            
+            const combo = combos[comboType];
+            if (!combo) {
+                showNotification('Combo not found', 'warning');
+                return;
+            }
+            
+            // Add each food in the combo
+            combo.forEach(item => {
+                addBreakfastFood(item.food, item.amount, item.unit);
+            });
+            
+            showNotification(`${comboType.replace('_', ' ')} combo added to breakfast!`, 'success');
+        }
+
+        function updateCurrentMealDisplay() {
+            const currentMealDiv = document.getElementById('currentMeal');
+            const currentMealFoods = dailyMeals[currentMealType];
+            
+            if (currentMealFoods.length === 0) {
+                currentMealDiv.innerHTML = '<p class="text-muted">No foods added yet. Click on breakfast food cards above!</p>';
+                return;
+            }
+            
+            currentMealDiv.innerHTML = `
+                <h6>${currentMealType.charAt(0).toUpperCase() + currentMealType.slice(1)} Foods:</h6>
+                ${currentMealFoods.map(food => `
+                    <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+                        <div>
+                            <strong>${food.name}</strong>
+                            <small class="text-muted d-block">${food.amount}</small>
+                        </div>
+                        <div class="text-end">
+                            <div>${food.calories} cal</div>
+                            <small class="text-muted">P: ${food.protein}g | C: ${food.carbs}g | F: ${food.fats}g</small>
+                        </div>
+                    </div>
+                `).join('')}
+            `;
+        }
+
+        function updateDailyTotals() {
+            let totalCalories = 0;
+            let totalProtein = 0;
+            let totalCarbs = 0;
+            let totalFats = 0;
+            
+            Object.values(dailyMeals).forEach(meal => {
+                meal.forEach(food => {
+                    totalCalories += food.calories;
+                    totalProtein += food.protein;
+                    totalCarbs += food.carbs;
+                    totalFats += food.fats;
+                });
+            });
+            
+            document.getElementById('totalCalories').textContent = totalCalories;
+            document.getElementById('totalProtein').textContent = totalProtein + 'g';
+            document.getElementById('totalCarbs').textContent = totalCarbs + 'g';
+            document.getElementById('totalFats').textContent = totalFats + 'g';
+        }
+
+        function showNotification(message, type = 'info') {
+            // Simple notification
+            const alertClass = type === 'error' ? 'alert-danger' : type === 'success' ? 'alert-success' : type === 'warning' ? 'alert-warning' : 'alert-info';
+            const notification = document.createElement('div');
+            notification.className = `alert ${alertClass} alert-dismissible fade show position-fixed`;
+            notification.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            notification.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            document.body.appendChild(notification);
+            
+            // Auto remove after 3 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 3000);
+        }
+
+        // Mock food database for testing
+        const foodDatabase = {
+            'chicken_breast': { name: 'Chicken Breast', caloriesPer100g: 165, protein: 31, carbs: 0, fats: 3.6, fiber: 0, sugar: 0 },
+            'eggs': { name: 'Eggs', caloriesPer100g: 155, protein: 13, carbs: 1.1, fats: 11, fiber: 0, sugar: 1.1 },
+            'greek_yogurt': { name: 'Greek Yogurt', caloriesPer100g: 59, protein: 10, carbs: 3.6, fats: 0.4, fiber: 0, sugar: 3.6 },
+            'oatmeal': { name: 'Oatmeal', caloriesPer100g: 389, protein: 16.9, carbs: 66, fats: 6.9, fiber: 10.6, sugar: 0.99 },
+            'banana': { name: 'Banana', caloriesPer100g: 89, protein: 1.1, carbs: 23, fats: 0.3, fiber: 2.6, sugar: 12.2 },
+            'avocado': { name: 'Avocado', caloriesPer100g: 160, protein: 2, carbs: 8.5, fats: 14.7, fiber: 6.7, sugar: 0.7 },
+            'almonds': { name: 'Almonds', caloriesPer100g: 579, protein: 21.2, carbs: 21.6, fats: 49.9, fiber: 12.5, sugar: 4.4 },
+            'mixed_berries': { name: 'Mixed Berries', caloriesPer100g: 57, protein: 0.7, carbs: 14, fats: 0.3, fiber: 2.4, sugar: 10 }
+        };
+
+        function convertPortionToGrams(amount, unit, foodName) {
+            // Simple conversion logic
+            const conversions = {
+                'g': 1,
+                'ml': 1,
+                'large': 50, // Approximate for eggs
+                'medium': 30, // Approximate for fruits
+                'slice': 25, // Approximate for bread
+                'tbsp': 15, // Approximate for liquids
+                'tsp': 5 // Approximate for liquids
+            };
+            
+            return amount * (conversions[unit] || 1);
+        }
+    </script>
+
+    <style>
+        .breakfast-item {
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .breakfast-item i {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .breakfast-item span {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .breakfast-item small {
+            display: block;
+            color: #666;
+        }
+        
+        .btn:hover .breakfast-item {
+            transform: scale(1.05);
+            transition: transform 0.2s;
+        }
+    </style>
+</body>
+</html>
